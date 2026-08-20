@@ -5,7 +5,7 @@ import { TrustedPartnerSection } from "@/components/sections/Work";
 import { SourcingOptionsSection } from "@/components/sections/Stats";
 import { DealersImportersSection } from "@/components/sections/Testimonials";
 import { AuctionAccessSection } from "@/components/sections/Team";
-import { Clients } from "@/components/sections/Clients";
+import { JapanToMarketProcess } from "@/components/sections/Clients";
 import { Cta } from "@/components/sections/Cta";
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
         <SourcingOptionsSection />
         <DealersImportersSection />
         <AuctionAccessSection />
-        <Clients />
+        <JapanToMarketProcess />
         <Cta />
       </Sections>
     </main>
