@@ -4,6 +4,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, FreeMode } from "swiper/modules";
+import {  type Variants } from "framer-motion";
+
 
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -44,22 +46,31 @@ const slides = [...manufacturers, ...manufacturers];
 // ---------------------------------------------------------------------------
 // Motion variants
 // ---------------------------------------------------------------------------
-
-const headingVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i: number) => ({
+const headingVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 20,
+  },
+  visible: (custom) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
+    transition: {
+      duration: 0.6,
+      delay: custom * 0.1,
+    },
   }),
 };
-
 const railVariants = {
-  hidden: { opacity: 0, y: 16 },
+  hidden: {
+    opacity: 0,
+    x: -20,
+  },
   visible: {
     opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, delay: 0.24, ease: [0.22, 1, 0.36, 1] },
+    x: 0,
+    transition: {
+      duration: 0.5,
+    },
   },
 };
 
@@ -74,7 +85,7 @@ export function ManufacturersSlider() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.6 }}
-            variants={headingVariants as Variants}
+            variants={headingVariants}
             className="mb-3 text-sm font-medium uppercase tracking-[0.16em] text-accent"
           >
             Trusted Manufacturers
@@ -85,7 +96,7 @@ export function ManufacturersSlider() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.6 }}
-            variants={headingVariants as Variants}
+            variants={headingVariants }
             className="text-3xl leading-tight sm:text-4xl md:text-5xl"
           >
             Find Cars From Leading Manufacturers
@@ -96,7 +107,7 @@ export function ManufacturersSlider() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.6 }}
-            variants={headingVariants as Variants}
+            variants={headingVariants}
             className="mt-4 text-base leading-relaxed text-secondary sm:text-lg"
           >
             Explore vehicles from popular Japanese and international
@@ -109,7 +120,7 @@ export function ManufacturersSlider() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          variants={railVariants as Variants}
+          variants={railVariants}
           className="relative"
         >
           {/* Edge fade masks */}

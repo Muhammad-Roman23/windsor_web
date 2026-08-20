@@ -7,6 +7,11 @@ import { DealersImportersSection } from "@/components/sections/Testimonials";
 import { AuctionAccessSection } from "@/components/sections/Team";
 import { JapanToMarketProcess } from "@/components/sections/Clients";
 import { Cta } from "@/components/sections/Cta";
+import { GlobalReachSection } from "@/components/sections/GlobalReach";
+import { VehicleCategoriesSection } from "@/components/sections/VehicleCategoriesSection";
+import { BetterWaySection } from "@/components/sections/BetterWaySection";
+import { MissionSection } from "@/components/sections/MissionSection";
+import { ConfidenceSection } from "@/components/sections/ConfidenceSection";
 
 export default function Home() {
   return (
@@ -19,6 +24,11 @@ export default function Home() {
         <DealersImportersSection />
         <AuctionAccessSection />
         <JapanToMarketProcess />
+        <GlobalReachSection />
+        <VehicleCategoriesSection />
+        <BetterWaySection />
+        <MissionSection />
+        <ConfidenceSection />
         <Cta />
       </Sections>
     </main>
