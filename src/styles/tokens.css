@@ -1,0 +1,54 @@
+:root {
+  /* -------------------------------------------------------------------------
+     Color tokens — never use hex values in components.
+     Use Tailwind: bg-main, text-main, text-alt, text-secondary, bg-accent, etc.
+     Or CSS: var(--color-main), var(--color-alt), var(--color-secondary), var(--color-accent)
+     ------------------------------------------------------------------------- */
+  --token-color-base: #0d0d0d;
+  --token-color-alt: #ffffff;
+  --token-color-secondary: #e6e8eb;
+  --token-color-accent: #ffd200;
+
+  /* -------------------------------------------------------------------------
+     Font tokens — never name a font family in components.
+     Use Tailwind: font-heading, font-body
+     Or CSS: var(--font-heading), var(--font-body)
+     --font-poppins / --font-gordita are injected by next/font in layout.tsx
+     ------------------------------------------------------------------------- */
+  --token-font-heading: var(--font-poppins), sans-serif;
+  --token-font-body: var(--font-gordita), sans-serif;
+
+  /* Shared layout spacing for every section (all breakpoints) */
+  --space-section-x: 1.25rem;
+  --space-section-y: 4.5rem;
+  --space-content: 72rem;
+  --nav-height: 4.75rem;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --space-section-x: 2rem;
+    --space-section-y: 5.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --space-section-x: 2.5rem;
+    --space-section-y: 6.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --space-section-x: 4rem;
+    --space-section-y: 7.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --space-section-x: 5.5rem;
+    --space-section-y: 8rem;
+  }
+}
