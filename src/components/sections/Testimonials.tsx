@@ -1,192 +1,271 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import { BadgeCheck, Quote } from "lucide-react";
+
+import "swiper/css";
+import "swiper/css/pagination";
 
 // ---------------------------------------------------------------------------
-// Content
+// Data — replace with real client testimonials whenever you have them.
+// countryCode is a 2-letter ISO code, used to render the flag emoji.
 // ---------------------------------------------------------------------------
 
-const buyerTypes = ["Dealers", "Importers", "Automotive Traders"];
+interface Testimonial {
+  number: string;
+  quote: string;
+  name: string;
+  role: string;
+  country: string;
+  countryCode: string;
+  verified: boolean;
+}
 
-const scenarios = [
-  "Replenishing dealership stock",
-  "Purchasing for confirmed customer orders",
-  "Sourcing multiple units at once",
+const testimonials: Testimonial[] = [
+  {
+    number: "01",
+    quote:
+      "Windsor sourced exactly the stock we needed within days, not weeks. Every unit matched its auction sheet, and the paperwork was ready before the ship even docked.",
+    name: "Client Name",
+    role: "Dealer / Importer",
+    country: "United Kingdom",
+    countryCode: "GB",
+    verified: true,
+  },
+  {
+    number: "02",
+    quote:
+      "What stood out was the communication. Our advisor gave us weekly updates without us having to chase, and flagged a shipping delay before we even noticed it.",
+    name: "Client Name",
+    role: "Automotive Business",
+    country: "Kenya",
+    countryCode: "KE",
+    verified: true,
+  },
+  {
+    number: "03",
+    quote:
+      "We've imported through three brokers before Windsor. This is the first time the condition report matched the car on arrival, down to the interior wear.",
+    name: "Client Name",
+    role: "Vehicle Importer",
+    country: "United Arab Emirates",
+    countryCode: "AE",
+    verified: false,
+  },
 ];
+
+function flagEmoji(countryCode: string) {
+  return countryCode
+    .toUpperCase()
+    .replace(/./g, (char) =>
+      String.fromCodePoint(127397 + char.charCodeAt(0))
+    );
+}
 
 // ---------------------------------------------------------------------------
 // Motion variants
 // ---------------------------------------------------------------------------
+const headingVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (custom) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay: custom * 0.1 },
+  }),
+};
 
-const fadeUp: Variants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 24 },
-  visible: (i: number = 0) => ({
+  visible: (custom) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.55, delay: 0.1 + custom * 0.12 },
   }),
 };
 
-const fadeIn: Variants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: (i: number = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, delay: 0.2 + i * 0.08, ease: [0.22, 1, 0.36, 1] },
-  }),
-};
-
-export  function DealersImportersSection() {
+// ---------------------------------------------------------------------------
+// Card
+// ---------------------------------------------------------------------------
+function TestimonialCard({ item }: { item: Testimonial }) {
   return (
-    <section id="dealers-importers" className="section">
-      <div className="section-inner">
-        {/* Heading */}
-        <motion.p
-          custom={0}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.6 }}
-          variants={fadeUp}
-          className="mb-3 text-sm font-medium uppercase tracking-[0.16em] text-accent"
+    <div
+      className="relative flex h-full flex-col overflow-hidden rounded-3xl border p-8"
+      style={{
+        borderColor:
+          "color-mix(in srgb, var(--color-secondary) 15%, transparent)",
+        backgroundColor:
+          "color-mix(in srgb, var(--color-secondary) 4%, transparent)",
+      }}
+    >
+      {/* Watermark quote mark — the signature element */}
+      <Quote
+        aria-hidden
+        className="pointer-events-none absolute -right-3 -top-3 h-24 w-24 rotate-6"
+        strokeWidth={0}
+        style={{
+          fill: "color-mix(in srgb, var(--color-accent) 10%, transparent)",
+        }}
+      />
+
+      <div className="relative mb-6 flex items-center justify-between">
+        <span
+          className="text-xs font-semibold tracking-[0.14em]"
+          style={{ color: "var(--color-accent)" }}
         >
-          Built For You
-        </motion.p>
+          REVIEW {item.number}
+        </span>
+        {item.verified && (
+          <span
+            className="flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-medium"
+            style={{
+              backgroundColor:
+                "color-mix(in srgb, var(--color-accent) 14%, transparent)",
+              color: "var(--color-accent)",
+            }}
+          >
+            <BadgeCheck size={13} strokeWidth={2.5} />
+            Verified Customer
+          </span>
+        )}
+      </div>
 
-        <motion.h2
-          custom={1}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.6 }}
-          variants={fadeUp}
-          className="max-w-3xl text-3xl leading-tight sm:text-4xl md:text-5xl"
-        >
-          Built Around the Needs of Dealers &amp; Importers
-        </motion.h2>
+      <p className="relative mb-8 flex-1 text-base leading-relaxed sm:text-lg">
+        &ldquo;{item.quote}&rdquo;
+      </p>
 
-        {/* Lede statement */}
-        <motion.div
-          custom={2}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          variants={fadeUp}
-          className="mt-8 max-w-3xl border-l-4 pl-6"
-          style={{ borderColor: "var(--color-accent)" }}
-        >
-          <p className="text-xl leading-relaxed text-alt sm:text-2xl md:text-[1.75rem]">
-            For professional vehicle buyers, successful sourcing is not only
-            about finding a car. It is about finding{" "}
-            <span className="text-accent">
-              the right vehicle, at the right specification, for the right
-              market
-            </span>
-            .
-          </p>
-        </motion.div>
-
-        {/* Two-column detail */}
-        <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
-          {/* Who we support */}
-          <div>
-            <motion.h3
-              custom={0}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.6 }}
-              variants={fadeIn}
-              className="text-lg sm:text-xl"
-            >
-              Who We Support
-            </motion.h3>
-
-            <motion.p
-              custom={1}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.6 }}
-              variants={fadeIn}
-              className="mt-3 text-base leading-relaxed text-secondary sm:text-lg"
-            >
-              Windsor Auto Group supports dealers, importers and automotive
-              traders who regularly source used cars from Japan for resale
-              and customer demand.
-            </motion.p>
-
-            <div className="mt-5 flex flex-wrap gap-2.5">
-              {buyerTypes.map((type, i) => (
-                <motion.span
-                  key={type}
-                  custom={2 + i}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.6 }}
-                  variants={fadeIn}
-                  className="rounded-full border px-4 py-1.5 text-sm font-medium text-alt"
-                  style={{
-                    borderColor:
-                      "color-mix(in srgb, var(--color-secondary) 18%, transparent)",
-                    backgroundColor:
-                      "color-mix(in srgb, var(--color-secondary) 4%, transparent)",
-                  }}
-                >
-                  {type}
-                </motion.span>
-              ))}
-            </div>
-          </div>
-
-          {/* How we help */}
-          <div>
-            <motion.h3
-              custom={0}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.6 }}
-              variants={fadeIn}
-              className="text-lg sm:text-xl"
-            >
-              Common Buying Scenarios
-            </motion.h3>
-
-            <motion.p
-              custom={1}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.6 }}
-              variants={fadeIn}
-              className="mt-3 text-base leading-relaxed text-secondary sm:text-lg"
-            >
-              Whether you are replenishing dealership stock, purchasing
-              vehicles for confirmed customer orders or sourcing multiple
-              units, we help make the buying process from Japan more
-              structured and dependable.
-            </motion.p>
-
-            <ul className="mt-5 space-y-3">
-              {scenarios.map((item, i) => (
-                <motion.li
-                  key={item}
-                  custom={2 + i}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.6 }}
-                  variants={fadeIn}
-                  className="flex items-start gap-2.5"
-                >
-                  <CheckCircle2
-                    className="mt-0.5 h-5 w-5 shrink-0 text-accent"
-                    strokeWidth={1.75}
-                  />
-                  <span className="text-base leading-relaxed text-secondary sm:text-lg">
-                    {item}
-                  </span>
-                </motion.li>
-              ))}
-            </ul>
-          </div>
+      <div
+        className="relative flex items-center justify-between border-t pt-5"
+        style={{
+          borderColor:
+            "color-mix(in srgb, var(--color-secondary) 15%, transparent)",
+        }}
+      >
+        <div>
+          <p className="text-sm font-semibold">{item.name}</p>
+          <p className="text-xs text-secondary">{item.role}</p>
+        </div>
+        <div className="flex items-center gap-2 text-sm text-secondary">
+          <span aria-hidden className="text-base leading-none">
+            {flagEmoji(item.countryCode)}
+          </span>
+          {item.country}
         </div>
       </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Main component
+// ---------------------------------------------------------------------------
+export function Testimonials() {
+  return (
+    <section id="testimonials" className="section">
+      <div className="section-inner">
+        {/* Heading */}
+        <div className="mb-10 max-w-2xl md:mb-14">
+          <motion.p
+            custom={0}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.6 }}
+            variants={headingVariants}
+            className="mb-3 text-sm font-medium uppercase tracking-[0.16em] text-accent"
+          >
+            Testimonials
+          </motion.p>
+
+          <motion.h2
+            custom={1}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.6 }}
+            variants={headingVariants}
+            className="text-3xl leading-tight sm:text-4xl md:text-5xl"
+          >
+            What Our Clients Say
+          </motion.h2>
+
+          <motion.p
+            custom={2}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.6 }}
+            variants={headingVariants}
+            className="mt-2 text-lg font-medium sm:text-xl"
+          >
+            Trusted by Dealers &amp; Importers
+          </motion.p>
+
+          <motion.p
+            custom={3}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.6 }}
+            variants={headingVariants}
+            className="mt-4 text-base leading-relaxed text-secondary sm:text-lg"
+          >
+            Our customers work in different markets, but they all need the
+            same things from a vehicle supplier: reliable sourcing, clear
+            communication and confidence throughout the buying process. See
+            what dealers, importers and automotive buyers say about their
+            experience sourcing vehicles from Japan with Windsor Auto Group.
+          </motion.p>
+        </div>
+
+        {/* Desktop: static three-column grid */}
+        <div className="hidden gap-6 md:grid md:grid-cols-3">
+          {testimonials.map((item, i) => (
+            <motion.div
+              key={item.number}
+              custom={i}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={cardVariants}
+              className="h-full"
+            >
+              <TestimonialCard item={item} />
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Mobile: swipe carousel */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={cardVariants}
+          className="testimonials-mobile md:hidden"
+        >
+          <Swiper
+            modules={[Pagination]}
+            pagination={{ clickable: true }}
+            slidesPerView={1}
+            spaceBetween={16}
+            grabCursor
+            className="!pb-10"
+          >
+            {testimonials.map((item) => (
+              <SwiperSlide key={item.number}>
+                <TestimonialCard item={item} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </motion.div>
+      </div>
+
+      <style jsx global>{`
+        .testimonials-mobile .swiper-pagination-bullet {
+          background: color-mix(in srgb, var(--color-secondary) 30%, transparent);
+          opacity: 1;
+        }
+        .testimonials-mobile .swiper-pagination-bullet-active {
+          background: var(--color-accent);
+        }
+      `}</style>
     </section>
   );
 }

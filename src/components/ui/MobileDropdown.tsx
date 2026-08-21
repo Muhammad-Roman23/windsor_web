@@ -6,7 +6,7 @@ import type { NavItem } from "@/data/nav";
 
 type MobileDropdownProps = {
   item: NavItem;
-  onNavigate: () => void;
+  onNavigate?: () => void;
 };
 
 export function MobileDropdown({ item, onNavigate }: MobileDropdownProps) {
@@ -38,7 +38,7 @@ export function MobileDropdown({ item, onNavigate }: MobileDropdownProps) {
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
-            {item.children.map((link) => (
+            {item.children?.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}

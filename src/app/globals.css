@@ -7,7 +7,7 @@
   --color-alt: var(--token-color-alt);
   --color-secondary: var(--token-color-secondary);
   --color-accent: var(--token-color-accent);
-
+  
   --font-heading: var(--token-font-heading);
   --font-body: var(--token-font-body);
 }
@@ -55,6 +55,12 @@
     scroll-margin-top: var(--nav-height);
     padding-inline: var(--space-section-x);
     padding-block: var(--space-section-y);
+  }
+  .nav-section {
+    width: 100%;
+    /* scroll-margin-top: var(--nav-height); */
+    padding-inline: var(--space-section-x);
+    /* padding-block: var(--space-section-y); */
   }
 
   .section-inner {

@@ -13,8 +13,11 @@ export function Dropdown({ item, onNavigate }: DropdownProps) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const menuId = useId();
+  const hasChildren = Boolean(item.children && item.children.length > 0);
 
   useEffect(() => {
+    if (!hasChildren) return;
+
     function handlePointer(event: MouseEvent) {
       if (!rootRef.current?.contains(event.target as Node)) {
         setOpen(false);
@@ -31,7 +34,21 @@ export function Dropdown({ item, onNavigate }: DropdownProps) {
       document.removeEventListener("mousedown", handlePointer);
       document.removeEventListener("keydown", handleKey);
     };
-  }, []);
+  }, [hasChildren]);
+
+  // No children for this item — render a plain link. No arrow,
+  // no dropdown menu, no open/close state, no outside-click listener.
+  if (!hasChildren) {
+    return (
+      <a
+        href={item.href}
+        className="font-heading text-sm font-medium text-alt transition-colors hover:text-accent"
+        onClick={() => onNavigate?.()}
+      >
+        {item.label}
+      </a>
+    );
+  }
 
   return (
     <div

@@ -32,7 +32,7 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`left-0 right-0 z-50 transition-[background-color,box-shadow,backdrop-filter] duration-300 ${
+        className={`nav-section left-0 right-0 z-50 transition-[background-color,box-shadow,backdrop-filter] duration-300 ${
           fixed ? "fixed top-0" : "absolute top-0"
         } ${
           fixed
@@ -40,7 +40,7 @@ export function Navbar() {
             : "border-b border-transparent bg-transparent"
         }`}
       >
-        <div className="mx-auto flex h-[var(--nav-height)] items-center justify-between px-[var(--space-section-x)]">
+        <div className="mx-auto section-inner flex h-[var(--nav-height)] items-center justify-between ">
           <a href="#top" className="font-heading text-lg font-semibold tracking-tight text-alt">
             {site.name}
             <span className="text-accent">.</span>
@@ -48,7 +48,10 @@ export function Navbar() {
 
           <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
             {navItems.map((item) => (
+
+              
               <Dropdown key={item.label} item={item} />
+             
             ))}
           </nav>
 
