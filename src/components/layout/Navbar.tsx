@@ -53,9 +53,9 @@ export function Navbar() {
             {site.name}
             <span className="text-accent">.</span>
           </a>
-          <div className="parent flex items-center gap-4 ">
+          
 
-              <div className="block  md:hidden">
+              <div className="block ms-auto  md:hidden">
                 <ThemeToggle />
               </div>
 
@@ -107,7 +107,7 @@ export function Navbar() {
               />
             </span>
           </button>
-           </div>
+           
         </div>
 
      
