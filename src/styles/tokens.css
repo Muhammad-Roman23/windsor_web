@@ -41,7 +41,7 @@
    accent for readable contrast on a light background.
    ----------------------------------------------------------------------- */
 .light {
-  --token-color-base: #ffffff;
+  --token-color-base: #fffff4;
   --token-color-alt: #0d0d0d;
   --token-color-secondary: #4b4b4b;
   --token-color-accent: #b8860b;

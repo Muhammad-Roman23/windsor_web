@@ -146,11 +146,7 @@ export function ManufacturersSlider() {
             allowTouchMove
             grabCursor
             speed={4500}
-            autoplay={{
-              delay: 0,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }}
+            autoplay={true}
             slidesPerView="auto"
             spaceBetween={16}
             className="!px-1 !py-2"
