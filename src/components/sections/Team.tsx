@@ -146,7 +146,7 @@ export  function AuctionAccessSection() {
           <div className="lg:col-span-7">
             <div className="relative">
               {/* Connecting line */}
-              <motion.div
+              {/* <motion.div
                 initial={{ scaleY: 0 }}
                 whileInView={{ scaleY: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
@@ -156,7 +156,7 @@ export  function AuctionAccessSection() {
                   backgroundColor:
                     "color-mix(in srgb, var(--color-secondary) 18%, transparent)",
                 }}
-              />
+              /> */}
 
               <div className="space-y-6">
                 {steps.map((step, i) => (

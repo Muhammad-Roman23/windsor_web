@@ -11,6 +11,21 @@ type MobileDropdownProps = {
 
 export function MobileDropdown({ item, onNavigate }: MobileDropdownProps) {
   const [open, setOpen] = useState(false);
+  const hasChildren = Boolean(item.children && item.children.length > 0);
+
+  // No children for this item — render a plain link, jaisa desktop
+  // Dropdown mein hota hai. No arrow, no accordion, no state.
+  if (!hasChildren) {
+    return (
+      <a
+        href={item.href}
+        className="block border-b border-secondary/15 py-4 font-heading text-lg font-medium text-alt transition-colors hover:text-accent"
+        onClick={onNavigate}
+      >
+        {item.label}
+      </a>
+    );
+  }
 
   return (
     <div className="border-b border-secondary/15">

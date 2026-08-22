@@ -19,12 +19,12 @@ export const navItems: NavItem[] = [
     href: "#top",
   },
   {
-    label: "Studio",
+    label: "Cars",
     href: "#studio",
     children: [
-      { label: "About Windsor", href: "#about" },
-      { label: "Our approach", href: "#approach" },
-      { label: "The team", href: "#team" },
+      { label: "Auction Cars", href: "#about" },
+      { label: "Stock Cars", href: "#approach" },
+      { label: "Top Trending", href: "#team" },
     ],
   },
   {
@@ -32,12 +32,12 @@ export const navItems: NavItem[] = [
     href: "#top",
   },
   {
-    label: "Work",
+    label: "Services",
     href: "#work",
     children: [
-      { label: "Selected projects", href: "#projects" },
-      { label: "Case studies", href: "#cases" },
-      { label: "Clients", href: "#clients" },
+      { label: "Terms of Trade", href: "#projects" },
+      { label: "Service Plans", href: "#cases" },
+      { label: "Auction Sheet Translator", href: "#clients" },
     ],
   },
   {
