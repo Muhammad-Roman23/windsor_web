@@ -3,11 +3,11 @@
      Color tokens — never use hex values in components.
      Use Tailwind: bg-main, text-main, text-alt, text-secondary, bg-accent, etc.
      Or CSS: var(--color-main), var(--color-alt), var(--color-secondary), var(--color-accent)
+
+     Actual color values now live inside .dark / .light below — next-themes
+     toggles the class on <html>, and every var(--color-*) updates automatically
+     via the @theme inline mapping in globals.css.
      ------------------------------------------------------------------------- */
-  --token-color-base: #0d0d0d;
-  --token-color-alt: #ffffff;
-  --token-color-secondary: #e6e8eb;
-  --token-color-accent: #ffd200;
 
   /* -------------------------------------------------------------------------
      Font tokens — never name a font family in components.
@@ -23,6 +23,28 @@
   --space-section-y: 4.5rem;
   --space-content: 72rem;
   --nav-height: 4.75rem;
+}
+
+/* -----------------------------------------------------------------------
+   Dark theme (default) — the original palette: black bg, white/gray text,
+   gold accent.
+   ----------------------------------------------------------------------- */
+.dark {
+  --token-color-base: #0d0d0d;
+  --token-color-alt: #ffffff;
+  --token-color-secondary: #e6e8eb;
+  --token-color-accent: #ffd200;
+}
+
+/* -----------------------------------------------------------------------
+   Light theme — inverted: white bg, near-black heading text, deeper gold
+   accent for readable contrast on a light background.
+   ----------------------------------------------------------------------- */
+.light {
+  --token-color-base: #ffffff;
+  --token-color-alt: #0d0d0d;
+  --token-color-secondary: #4b4b4b;
+  --token-color-accent: #b8860b;
 }
 
 @media (min-width: 640px) {

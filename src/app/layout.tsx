@@ -4,6 +4,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
+import {ThemeProvider} from "@/components/layout/ThemeProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -29,10 +30,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${poppins.variable} ${gordita.variable} h-full antialiased`}>
         <body className="min-h-full bg-main font-body text-secondary">
+          <ThemeProvider >
         <Navbar />
         {children}
         <Footer />
         <ScrollToTop />
+          </ThemeProvider >
       </body>
     </html>
   );
