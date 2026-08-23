@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useId, useRef, useState } from "react";
 import type { NavItem } from "@/data/nav";
+import Link from "next/link";
 
 type DropdownProps = {
   item: NavItem;
@@ -40,13 +41,13 @@ export function Dropdown({ item, onNavigate }: DropdownProps) {
   // no dropdown menu, no open/close state, no outside-click listener.
   if (!hasChildren) {
     return (
-      <a
+      <Link
         href={item.href}
         className="font-heading text-sm font-medium text-alt transition-colors hover:text-accent"
         onClick={() => onNavigate?.()}
       >
         {item.label}
-      </a>
+      </Link>
     );
   }
 
@@ -88,7 +89,7 @@ export function Dropdown({ item, onNavigate }: DropdownProps) {
             <ul className="rounded-xl border border-secondary/15 bg-main py-2 shadow-[0_18px_50px_color-mix(in_srgb,var(--color-main)_80%,transparent)]">
               {item.children?.map((link) => (
                 <li key={link.href} role="none">
-                  <a
+                  <Link
                     role="menuitem"
                     href={link.href}
                     className="block px-4 py-2 font-body text-sm text-secondary transition-colors hover:bg-alt/5 hover:text-accent"
@@ -98,7 +99,7 @@ export function Dropdown({ item, onNavigate }: DropdownProps) {
                     }}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -12,41 +12,41 @@ export type NavItem = {
 export const navItems: NavItem[] = [
   {
     label: "Home",
-    href: "#top",
+    href: "/",
   },
   {
     label: "About",
-    href: "#top",
+    href: "/about",
   },
   {
     label: "Cars",
-    href: "#studio",
+    href: "/cars",
     children: [
-      { label: "Auction Cars", href: "#about" },
-      { label: "Stock Cars", href: "#approach" },
-      { label: "Top Trending", href: "#team" },
+      { label: "Auction Cars", href: "/japanese-auction-cars" },
+      { label: "Stock Cars", href: "/japanese-used-stock-cars-for-sale" },
+      { label: "Top Trending", href: "/top-trending" },
     ],
   },
   {
     label: "Testimonials",
-    href: "#top",
+    href: "/testimonials",
   },
   {
     label: "Services",
-    href: "#work",
+    href: "/services",
     children: [
-      { label: "Terms of Trade", href: "#projects" },
-      { label: "Service Plans", href: "#cases" },
-      { label: "Auction Sheet Translator", href: "#clients" },
+      { label: "Terms of Trade", href: "/services/terms-of-trade" },
+      { label: "Service Plans", href: "/services/service-plans" },
+      { label: "Auction Sheet Translator", href: "/services/auction-sheet-translator" },
     ],
   },
   {
     label: "Contact Us",
-    href: "#top",
+    href: "/contact-us",
   },
   {
     label: "Blogs",
-    href: "#top",
+    href: "/blogs",
   },
   
   
