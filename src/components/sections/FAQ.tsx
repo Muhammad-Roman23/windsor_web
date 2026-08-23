@@ -5,46 +5,22 @@ import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { Plus, MessageCircle } from "lucide-react";
 
 // ---------------------------------------------------------------------------
-// Data
+// Types
 // ---------------------------------------------------------------------------
 
-interface FAQ {
+interface FAQItem {
   question: string;
   answer: string;
 }
 
-const faqs: FAQ[] = [
-  {
-    question: "What does Windsor Auto Group specialize in?",
-    answer:
-      "Windsor Auto Group specializes in sourcing and supplying Japanese used cars to dealers, importers and automotive businesses in international markets.",
-  },
-  {
-    question: "Can I source vehicles from Japanese car auctions?",
-    answer:
-      "Yes. If the vehicle you need is not available in current stock, we can help identify suitable vehicles through Japanese car auctions based on your preferred model, year, mileage, grade, specification and budget.",
-  },
-  {
-    question: "Do you work with car dealers and importers?",
-    answer:
-      "Yes. Windsor Auto Group is designed to support professional vehicle buyers, including dealerships, importers, traders and other automotive businesses sourcing cars from Japan.",
-  },
-  {
-    question: "Can you ship Japanese used cars worldwide?",
-    answer:
-      "We support international vehicle exports from Japan to multiple markets. Shipping availability and import requirements depend on the destination country, vehicle and available shipping routes.",
-  },
-  {
-    question: "Can I request a specific vehicle?",
-    answer:
-      "Yes. Send us the make, model, year, mileage, specification and budget you are looking for, and our sourcing team can search suitable options within the Japanese market.",
-  },
-  {
-    question: "Do you help with the export process from Japan?",
-    answer:
-      "Yes. After purchase, we can coordinate the relevant Japan-side export preparation, documentation and shipping arrangements required to send the vehicle to its destination.",
-  },
-];
+interface FAQProps {
+  eyebrow?: string;
+  heading?: string;
+  description?: string;
+  contactTitle?: string;
+  contactDescription?: string;
+  faqs: FAQItem[];
+}
 
 // ---------------------------------------------------------------------------
 // Motion variants
@@ -67,7 +43,14 @@ const rowVariants: Variants = {
   }),
 };
 
-export function FAQ() {
+export function FAQ({
+  eyebrow = "FAQ",
+  heading = "Frequently Asked Questions",
+  description = "Answers to the questions dealers and importers ask most before sourcing a vehicle from Japan with us.",
+  contactTitle = "Still have questions?",
+  contactDescription = "Talk to our sourcing team directly.",
+  faqs,
+}: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
@@ -83,7 +66,7 @@ export function FAQ() {
             variants={headingVariants}
             className="mb-3 text-sm font-medium uppercase tracking-[0.16em] text-accent"
           >
-            FAQ
+            {eyebrow}
           </motion.p>
 
           <motion.h2
@@ -94,7 +77,7 @@ export function FAQ() {
             variants={headingVariants}
             className="text-3xl leading-tight sm:text-4xl md:text-5xl"
           >
-            Frequently Asked Questions
+            {heading}
           </motion.h2>
 
           <motion.p
@@ -105,8 +88,7 @@ export function FAQ() {
             variants={headingVariants}
             className="mt-5 text-base leading-relaxed text-secondary sm:text-lg"
           >
-            Answers to the questions dealers and importers ask most before
-            sourcing a vehicle from Japan with us.
+            {description}
           </motion.p>
 
           <motion.div
@@ -134,10 +116,8 @@ export function FAQ() {
               <MessageCircle size={20} strokeWidth={2} />
             </span>
             <div>
-              <p className="text-sm font-semibold">Still have questions?</p>
-              <p className="text-sm text-secondary">
-                Talk to our sourcing team directly.
-              </p>
+              <p className="text-sm font-semibold">{contactTitle}</p>
+              <p className="text-sm text-secondary">{contactDescription}</p>
             </div>
           </motion.div>
         </div>
@@ -150,7 +130,7 @@ export function FAQ() {
               "color-mix(in srgb, var(--color-secondary) 15%, transparent)",
           }}
         >
-          {faqs.map((faq, i) => {
+          {faqs?.map((faq, i) => {
             const isOpen = openIndex === i;
             return (
               <motion.div

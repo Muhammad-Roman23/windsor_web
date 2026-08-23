@@ -24,6 +24,10 @@ const gordita = Outfit({
 export const metadata: Metadata = {
   title: "Windsor",
   description: "Quiet luxury, made visible.",
+    alternates: {
+    canonical: "http://localhost:3000/",
+  },  
+
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
