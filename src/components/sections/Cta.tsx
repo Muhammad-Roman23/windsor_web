@@ -2,7 +2,7 @@
 
 import { motion, type Variants } from "framer-motion";
 import { MapPin, ArrowRight } from "lucide-react";
-import { Button } from "../ui/Button";
+
 // ---------------------------------------------------------------------------
 // Motion variants
 // ---------------------------------------------------------------------------
@@ -24,7 +24,27 @@ const routeDraw: Variants = {
   },
 };
 
-export function StartSourcingCTA() {
+// ---------------------------------------------------------------------------
+// Props
+// ---------------------------------------------------------------------------
+interface StartSourcingCTAProps {
+  heading: string;
+  paragraph1: string;
+  paragraph2: string;
+  buttonText: string;
+  href?: string;
+}
+
+// ---------------------------------------------------------------------------
+// Component
+// ---------------------------------------------------------------------------
+export function StartSourcingCTA({
+  heading,
+  paragraph1,
+  paragraph2,
+  buttonText,
+  href = "#contact",
+}: StartSourcingCTAProps) {
   return (
     <section id="start-sourcing" className="section">
       <div className="section-inner">
@@ -94,7 +114,7 @@ export function StartSourcingCTA() {
               variants={textVariants}
               className="max-w-3xl text-4xl leading-tight sm:text-5xl md:text-6xl"
             >
-              Your Next Vehicle Starts in Japan
+              {heading}
             </motion.h2>
 
             <motion.p
@@ -105,9 +125,7 @@ export function StartSourcingCTA() {
               variants={textVariants}
               className="mt-6 max-w-xl text-base leading-relaxed text-secondary sm:text-lg"
             >
-              Whether you need one specific vehicle or regular stock for your
-              dealership, Windsor Auto Group can help you find the right cars
-              from the Japanese market.
+              {paragraph1}
             </motion.p>
 
             <motion.p
@@ -118,8 +136,7 @@ export function StartSourcingCTA() {
               variants={textVariants}
               className="mt-3 max-w-xl text-base leading-relaxed text-secondary sm:text-lg"
             >
-              Tell us what you are looking for and start sourcing with a team
-              focused on dealers and importers.
+              {paragraph2}
             </motion.p>
 
             <motion.a
@@ -128,14 +145,15 @@ export function StartSourcingCTA() {
               whileInView="visible"
               viewport={{ once: true, amount: 0.6 }}
               variants={textVariants}
-              href="#contact"
+              href={href}
               className="group mt-10 inline-flex items-center gap-2 rounded-full px-8 py-4 text-base font-medium transition-transform duration-300 hover:scale-[1.03]"
               style={{
                 backgroundColor: "var(--color-accent)",
                 color: "var(--color-main)",
               }}
             >
-              Start Sourcing From Japan
+              {buttonText}
+
               <ArrowRight
                 size={18}
                 strokeWidth={2.5}

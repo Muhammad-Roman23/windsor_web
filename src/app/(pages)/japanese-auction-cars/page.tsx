@@ -12,6 +12,8 @@ import { AuctionCarsExport } from "@/components/sections/AuctionCarsExport";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { FAQ } from "@/components/sections/FAQ";
 import type { Metadata } from "next";
+import { WhyAuctionCarsSection } from "@/components/sections/WhyAuctionCarsSection";
+import { ReadyToBuySection } from "@/components/sections/ReadyToBuySection";
 
 export const metadata: Metadata = {
   title: "Japanese Auction Cars for Sale from Japan | Windsor Auto",
@@ -64,6 +66,8 @@ const exportFaqs = [
         <SearchAvailableInventory />
         <AuctionCarsExport />
         <FAQ faqs={exportFaqs} />
+        <WhyAuctionCarsSection />
+        <ReadyToBuySection />
         {/* <FinalCta /> */}
       </Sections>
     </main>
