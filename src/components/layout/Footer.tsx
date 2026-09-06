@@ -1,39 +1,40 @@
 import Image from "next/image";
 import { site } from "@/data/content";
 import { MapPin, Mail, Phone } from "lucide-react";
+import Link from "next/link";
 
 // ---------------------------------------------------------------------------
 // Data — swap freely, structure won't need to change.
 // ---------------------------------------------------------------------------
 
 const makers = [
-  "Toyota",
-  "Honda",
-  "Nissan",
-  "Suzuki",
-  "Mazda",
-  "Mitsubishi",
-
+  { label: "Toyota", href: "/makers/toyota" },
+  { label: "Honda", href: "/makers/honda" },
+  { label: "Nissan", href: "/makers/nissan" },
+  { label: "Suzuki", href: "/makers/suzuki" },
+  { label: "Mazda", href: "/makers/mazda" },
+  { label: "Mitsubishi", href: "/makers/mitsubishi" },
 ];
 
 const bodyTypes = [
-  "Sedan",
-  "SUV",
-  "Hatchback",
-  "Coupe",
-  "Pickup Truck",
-  "Minivan",
-
+  { label: "Sedan", href: "/body-types/sedan" },
+  { label: "SUV", href: "/body-types/suv" },
+  { label: "Hatchback", href: "/body-types/hatchback" },
+  { label: "Coupe", href: "/body-types/coupe" },
+  { label: "Pickup Truck", href: "/body-types/pickup-truck" },
+  { label: "Minivan", href: "/body-types/minivan" },
 ];
 
 const countries = [
-  "Japan",
-  "Ireland",
-  "Cyprus",
-  "Pakistan",
-  "United States",
-  "United Kingdom",
+  { label: "Japan", href: "/japan" },
+  { label: "Ireland", href: "/ireland" },
+  { label: "Cyprus", href: "/cyprus" },
+  { label: "Pakistan", href: "/pakistan" },
+  { label: "United States", href: "/united-states" },
+  { label: "United Kingdom", href: "/united-kingdom" },
 ];
+
+
 
 const contact = {
   address: "1-2-3 Minato, Tokyo, Japan",
@@ -65,22 +66,28 @@ function ColumnHeading({ children }: { children: React.ReactNode }) {
   );
 }
 
-function LinkList({ items }: { items: string[] }) {
+
+function LinkList({
+  items,
+}: {
+  items: { label: string; href: string }[];
+}) {
   return (
     <ul className="space-y-2.5">
-      {items.map((label) => (
-        <li key={label}>
-          <a
-            href="#"
+      {items?.map((item) => (
+        <li key={item.label}>
+          <Link
+            href={item.href}
             className="text-sm text-secondary transition-colors hover:text-alt"
           >
-            {label}
-          </a>
+            {item.label}
+          </Link>
         </li>
       ))}
     </ul>
   );
 }
+
 
 export function Footer() {
   return (
@@ -109,6 +116,7 @@ export function Footer() {
             <div className="lg:border-l lg:border-dotted lg:border-accent lg:px-8">
               <ColumnHeading>Makers</ColumnHeading>
               <LinkList items={makers} />
+              
             </div>
 
             <div className="lg:border-l lg:border-dotted lg:border-accent lg:px-8">
