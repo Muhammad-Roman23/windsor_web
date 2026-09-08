@@ -26,7 +26,7 @@ const bodyTypes = [
 ];
 
 const countries = [
-  { label: "Japan", href: "/japan" },
+  { label: "Africa", href: "/africa" },
   { label: "Ireland", href: "/ireland" },
   { label: "Cyprus", href: "/cyprus" },
   { label: "Pakistan", href: "/pakistan" },

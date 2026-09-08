@@ -1,42 +1,42 @@
+
 "use client";
 
 import { motion, type Variants } from "framer-motion";
 import { Settings, Fuel, Gavel, Wallet } from "lucide-react";
 
 // ---------------------------------------------------------------------------
-// Content
+// Types
 // ---------------------------------------------------------------------------
 
-const features = [
-  {
-    number: "01",
-    title: "Proven Japanese Engineering",
-    description:
-      "Japanese manufacturers have built global reputations around dependable vehicle engineering and long-term usability. Toyota, Honda, Nissan, Mazda and Subaru all offer extensive model ranges covering hatchbacks, hybrids, crossovers and SUVs. Windsor Autos considers factors such as mileage, age, condition and available vehicle information when helping customers source a Japanese used car for Ireland.",
-    icon: Settings,
-  },
-  {
-    number: "02",
-    title: "Efficient Hybrid and Petrol Models",
-    description:
-      "Fuel economy is an important consideration for Irish motorists, particularly commuters covering regular daily distances. Japanese manufacturers offer a broad range of hybrid and efficient petrol vehicles, from compact hatchbacks to larger SUVs. Toyota's hybrid range is especially prominent in Ireland, with hybrid vehicles representing 22.48% of new-car registrations in 2025. Windsor Autos gives buyers access to Japanese hybrid and petrol stock across different vehicle categories.",
-    icon: Fuel,
-  },
-  {
-    number: "03",
-    title: "Wider Choice From Japanese Auctions",
-    description:
-      "Buying through the Japanese export market can open access to a larger range of vehicles than the stock available at one local dealership. Buyers can explore different model years, grades, colours, mileage ranges and specifications. Japanese auction documentation can also provide useful information about an individual vehicle before purchase. Windsor Autos helps customers navigate this sourcing process and identify vehicles that match their requirements.",
-    icon: Gavel,
-  },
-  {
-    number: "04",
-    title: "Options for Different Budgets",
-    description:
-      "Japanese used cars are available across a broad range of vehicle types and price points. Whether you are looking for a compact commuter, a hybrid crossover or a larger family SUV, the Japanese market provides numerous options. Windsor Autos works with customers to narrow down suitable vehicles according to their budget, preferred model, age, mileage and specification rather than taking a one-size-fits-all approach.",
-    icon: Wallet,
-  },
-];
+type FeatureIcon = "settings" | "fuel" | "gavel" | "wallet";
+
+type Feature = {
+  number: string;
+  title: string;
+  description: string;
+  icon: FeatureIcon;
+};
+
+type JapaneseCarsSectionProps = {
+  eyebrow: string;
+  heading: string;
+  headingAccent: string;
+  headingBeforeAccent: string;
+  headingAfterAccent: string;
+  description: string;
+  features: Feature[];
+};
+
+// ---------------------------------------------------------------------------
+// Icon Map
+// ---------------------------------------------------------------------------
+
+const iconMap = {
+  settings: Settings,
+  fuel: Fuel,
+  gavel: Gavel,
+  wallet: Wallet,
+};
 
 // ---------------------------------------------------------------------------
 // Motion
@@ -47,7 +47,11 @@ const fadeUp: Variants = {
   visible: (i: number = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] },
+    transition: {
+      duration: 0.6,
+      delay: i * 0.1,
+      ease: [0.22, 1, 0.36, 1],
+    },
   }),
 };
 
@@ -55,7 +59,15 @@ const fadeUp: Variants = {
 // Component
 // ---------------------------------------------------------------------------
 
-export function JapaneseCarsSection() {
+export function JapaneseCarsSection({
+  eyebrow,
+  heading,
+  headingAccent,
+  headingBeforeAccent,
+  headingAfterAccent,
+  description,
+  features,
+}: JapaneseCarsSectionProps) {
   return (
     <section id="japanese-used-cars" className="section">
       <div className="section-inner">
@@ -69,7 +81,7 @@ export function JapaneseCarsSection() {
             variants={fadeUp}
             className="mb-3 text-sm font-medium uppercase tracking-[0.16em] text-accent"
           >
-            Japanese Imports
+            {eyebrow}
           </motion.p>
 
           <motion.h2
@@ -80,9 +92,9 @@ export function JapaneseCarsSection() {
             variants={fadeUp}
             className="text-[1.75rem] leading-[1.15] sm:text-3xl lg:text-4xl xl:text-[2.75rem]"
           >
-            Why{" "}
-            <span className="text-accent">Irish</span> Drivers Choose Japanese
-            Used Cars
+            {headingBeforeAccent}{" "}
+            <span className="text-accent">{headingAccent}</span>{" "}
+            {headingAfterAccent}
           </motion.h2>
 
           <motion.p
@@ -93,15 +105,7 @@ export function JapaneseCarsSection() {
             variants={fadeUp}
             className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-secondary sm:text-lg"
           >
-            Japan has a well-established automotive industry with globally
-            recognised manufacturers including Toyota, Nissan, Honda, Mazda and
-            Subaru. Japanese vehicles are known for practical engineering,
-            efficient powertrains and a broad selection of hybrid and petrol
-            models. For Irish buyers, sourcing directly from Japan can also
-            provide access to different model years, grades and specifications.
-            Windsor Autos focuses on helping customers identify vehicles that
-            suit their individual requirements rather than simply offering one
-            type of car.
+            {description}
           </motion.p>
         </div>
 
@@ -130,7 +134,7 @@ export function JapaneseCarsSection() {
 
           <div className="grid gap-5 sm:gap-6 md:grid-cols-2">
             {features.map((feature, index) => {
-              const Icon = feature.icon;
+              const Icon = iconMap[feature.icon];
 
               return (
                 <motion.article
@@ -178,6 +182,7 @@ export function JapaneseCarsSection() {
                       <span className="text-sm font-semibold tracking-wider text-accent">
                         {feature.number}
                       </span>
+
                       <span
                         className="hidden h-1 w-1 rounded-full sm:block"
                         style={{
@@ -185,6 +190,7 @@ export function JapaneseCarsSection() {
                             "color-mix(in srgb, var(--color-secondary) 40%, transparent)",
                         }}
                       />
+
                       <h3 className="text-lg font-semibold leading-snug tracking-tight sm:text-xl">
                         {feature.title}
                       </h3>

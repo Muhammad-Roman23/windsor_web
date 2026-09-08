@@ -1,61 +1,26 @@
+
 "use client";
 
 import { motion, type Variants } from "framer-motion";
 
 // ---------------------------------------------------------------------------
-// Content
+// Types
 // ---------------------------------------------------------------------------
 
-const steps = [
-  {
-    number: "01",
-    title: "Browse Quality Japanese Cars",
-    description:
-      "We offer direct access to Japan’s top auction houses, giving you more value, reliability and transparency than local dealerships.",
-    image:
-      "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=400&q=80",
-  },
-  {
-    number: "02",
-    title: "Buy from a Trusted Exporter",
-    description:
-      "We are a trusted Japanese used car supplier with years of experience serving Irish buyers and supporting the full export process.",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80",
-  },
-  {
-    number: "03",
-    title: "Choose a Reliable Vehicle",
-    description:
-      "Our cars have low miles, are damage free, and are inspected before shipment so you can buy with greater confidence.",
-    image:
-      "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=400&q=80",
-  },
-  {
-    number: "04",
-    title: "Let Us Handle the Process",
-    description:
-      "We take care of all transportation and paperwork requirements for you, from auction to Irish port.",
-    image:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80",
-  },
-  {
-    number: "05",
-    title: "Find the Right Car for Your Needs",
-    description:
-      "Whether you need a hybrid for Dublin commuting or an SUV for Cork’s country roads, we help you find the perfect used car for sale in Ireland.",
-    image:
-      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=400&q=80",
-  },
-  {
-    number: "06",
-    title: "Drive Home with Confidence",
-    description:
-      "Choose Windsor Autos and enjoy a high-quality Japanese used car backed by reliable service from start to finish.",
-    image:
-      "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=400&q=80",
-  },
-];
+type Step = {
+  number: string;
+  title: string;
+  description: string;
+  image: string;
+};
+
+type WhyChooseWindsorProcessProps = {
+  eyebrow: string;
+  headingAccent: string;
+  headingText: string;
+  steps: Step[];
+  paragraph: string;
+};
 
 // ---------------------------------------------------------------------------
 // Motion
@@ -66,7 +31,11 @@ const fadeUp: Variants = {
   visible: (i: number = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] },
+    transition: {
+      duration: 0.55,
+      delay: i * 0.07,
+      ease: [0.22, 1, 0.36, 1],
+    },
   }),
 };
 
@@ -74,7 +43,13 @@ const fadeUp: Variants = {
 // Component
 // ---------------------------------------------------------------------------
 
-export function WhyChooseWindsorProcess() {
+export function WhyChooseWindsorProcess({
+  eyebrow,
+  headingAccent,
+  headingText,
+  steps,
+  paragraph,
+}: WhyChooseWindsorProcessProps) {
   return (
     <section id="why-choose-windsor" className="section">
       <div className="section-inner">
@@ -88,7 +63,7 @@ export function WhyChooseWindsorProcess() {
             variants={fadeUp}
             className="mb-2 text-sm font-medium uppercase tracking-[0.16em] text-secondary"
           >
-            Why Choose
+            {eyebrow}
           </motion.p>
 
           <motion.h2
@@ -99,10 +74,21 @@ export function WhyChooseWindsorProcess() {
             variants={fadeUp}
             className="text-[1.75rem] leading-[1.15] sm:text-3xl lg:text-4xl xl:text-[2.75rem]"
           >
-            <span className="text-accent">Windsor Autos</span> for Used Cars
-            Ireland
+            <span className="text-accent">{headingAccent}</span>{" "}
+            {headingText}
           </motion.h2>
         </div>
+
+          <motion.p
+            custom={0}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={fadeUp}
+            className="mb-2 text-sm text-center mt-4 text-secondary"
+          >
+            {paragraph}
+          </motion.p>
 
         {/* Process timeline */}
         <div className="relative mx-auto mt-16 max-w-3xl lg:max-w-4xl">
@@ -172,6 +158,7 @@ export function WhyChooseWindsorProcess() {
                         <h3 className="text-[0.95rem] font-semibold leading-snug tracking-tight lg:text-base">
                           {step.title}
                         </h3>
+
                         <p className="mt-1 text-[0.8rem] leading-relaxed text-secondary lg:text-[0.85rem]">
                           {step.description}
                         </p>
@@ -220,10 +207,12 @@ export function WhyChooseWindsorProcess() {
                           loading="lazy"
                         />
                       </div>
+
                       <div>
                         <h3 className="text-[0.95rem] font-semibold leading-snug">
                           {step.title}
                         </h3>
+
                         <p className="mt-1 text-[0.8rem] leading-relaxed text-secondary">
                           {step.description}
                         </p>
