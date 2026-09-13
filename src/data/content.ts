@@ -4,29 +4,28 @@ export const site = {
 };
 
 export const hero = {
-  title: "Japanese Used Car Supplier for Dealers & Importers Worldwide",
-  body: "Source quality Japanese used cars directly from Japan with Windsor Auto Group. We help dealers, importers and automotive businesses find the right vehicles through ready stock and Japanese car auctions, with reliable export and worldwide shipping support.",
-  primaryCta: { label: "Explore Cars From Japan", href: "#projects" },
-  secondaryCta: { label: "Request a Vehicle", href: "#contact" },
-  trust: ["Japanese Stock", "Auction Sourcing", "Export Support", "Worldwide Supply"],
-  brandsLabel: "Popular Japanese & International Brands",
-  brands: [
-    "Toyota",
-    "Honda",
-    "Nissan",
-    "Mazda",
-    "Subaru",
-    "Lexus",
-    "Mitsubishi",
-    "Suzuki",
-    "BMW",
-    "Mercedes-Benz",
-  ],
-  images: [
-    { src: "/images/hero/toyota.jpg", alt: "Toyota used car sourced from Japan", label: "Toyota" },
-    { src: "/images/hero/nissan.jpg", alt: "Nissan performance car from Japanese stock", label: "Nissan" },
-    { src: "/images/hero/lexus.jpg", alt: "Lexus luxury vehicle ready for export", label: "Lexus" },
-    { src: "/images/hero/honda.jpg", alt: "Honda from Japanese auctions", label: "Honda" },
+  slides: [
+    {
+      badge: "Limited Edition",
+      title: "Feel the Power.\nOwn the Race.",
+      body: "Explore the world's most advanced racing machines.",
+      image: { src: "https://picsum.photos/1600/900?random=1", alt: "Racing car on track" },
+      cta: { label: "Explore Now", href: "/collection" },
+    },
+    {
+      badge: "New Arrival",
+      title: "Precision Built.\nBorn to Perform.",
+      body: "Engineered for speed, designed for dominance.",
+      image: { src: "https://picsum.photos/1600/900?random=2", alt: "Sports car front view" },
+      cta: { label: "View Details", href: "/collection/2" },
+    },
+    {
+      badge: "Best Seller",
+      title: "Engineered Excellence.\nDrive the Future.",
+      body: "Where cutting-edge technology meets pure performance.",
+      image: { src: "https://picsum.photos/1600/900?random=3", alt: "Car on highway at speed" },
+      cta: { label: "Discover More", href: "/collection/3" },
+    },
   ],
 };
 

@@ -2,13 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, type Variants } from "framer-motion";
-import { Heart, Gauge, Timer, ArrowUpRight, ArrowRight } from "lucide-react";
 import { useState } from "react";
+import { Heart, Gauge, Timer, ArrowUpRight, ArrowRight } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
 import { Section } from "@/components/layout/Section";
 
+import "swiper/css";
+import "swiper/css/navigation";
+
 // ---------------------------------------------------------------------------
-// Dynamic data — swap/add/remove cars here
+// Dynamic data — max 10 cars
 // ---------------------------------------------------------------------------
 
 type Car = {
@@ -24,7 +28,6 @@ type Car = {
   price: string;
   href: string;
 };
-
 const cars: Car[] = [
   {
     id: "sf90",
@@ -133,33 +136,15 @@ const cars: Car[] = [
 ];
 
 // ---------------------------------------------------------------------------
-// Motion variants
+// Card (same design as Top Picks)
 // ---------------------------------------------------------------------------
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] },
-  }),
-};
-
-// ---------------------------------------------------------------------------
-// Card
-// ---------------------------------------------------------------------------
-
-function CarCard({ car, index }: { car: Car; index: number }) {
+function CarCard({ car }: { car: Car }) {
   const [liked, setLiked] = useState(false);
 
   return (
-    <motion.div
-      custom={index}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-      variants={fadeUp}
-      className="group flex flex-col overflow-hidden rounded-2xl border"
+    <div
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border"
       style={{
         borderColor: "color-mix(in srgb, var(--color-secondary) 14%, transparent)",
         backgroundColor: "color-mix(in srgb, var(--color-secondary) 3%, transparent)",
@@ -179,7 +164,7 @@ function CarCard({ car, index }: { car: Car; index: number }) {
           {car.year}
         </span>
 
-        {/* <button
+        <button
           type="button"
           onClick={() => setLiked((v) => !v)}
           aria-label="Save to favorites"
@@ -189,7 +174,7 @@ function CarCard({ car, index }: { car: Car; index: number }) {
             className={liked ? "h-4 w-4 fill-accent text-accent" : "h-4 w-4 text-alt"}
             strokeWidth={1.75}
           />
-        </button> */}
+        </button>
       </div>
 
       {/* Body */}
@@ -201,7 +186,7 @@ function CarCard({ car, index }: { car: Car; index: number }) {
           <p className="mt-0.5 text-sm text-secondary">{car.subtitle}</p>
         </div>
 
-        <div className="flex justify-between flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-secondary">
+        <div className="flex flex-wrap justify-between items-center gap-x-4 gap-y-1.5 text-xs text-secondary">
           <span className="inline-flex items-center gap-1.5">
             <Gauge className="h-3.5 w-3.5 text-accent" strokeWidth={1.75} />
             {car.locatedport}
@@ -211,8 +196,7 @@ function CarCard({ car, index }: { car: Car; index: number }) {
             {car.grade}
           </span>
         </div>
-
-        <div className="flex justify-between flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-secondary" >
+        <div   className="flex flex-wrap justify-between items-center gap-x-4 gap-y-1.5 text-xs text-secondary" >
 
           <span className="inline-flex items-center gap-1.5">
             <ArrowUpRight className="h-3.5 w-3.5 text-accent" strokeWidth={1.75} />
@@ -220,7 +204,7 @@ function CarCard({ car, index }: { car: Car; index: number }) {
           </span>
           <span className="inline-flex items-center gap-1.5">
             <ArrowUpRight className="h-3.5 w-3.5 text-accent" strokeWidth={1.75} />
-            {car.milege}
+            {car.engine}
           </span>
         </div>
 
@@ -235,7 +219,7 @@ function CarCard({ car, index }: { car: Car; index: number }) {
           </Link>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -243,14 +227,14 @@ function CarCard({ car, index }: { car: Car; index: number }) {
 // Section
 // ---------------------------------------------------------------------------
 
-export function TopPicksSection() {
+export const LiveStock = () => {
   return (
-    <Section id="top-picks" className="relative">
+    <Section id="live-stock" className="relative">
       <div className="mb-8 flex items-end justify-between gap-4 sm:mb-10">
         <div>
           <span className="mb-2 block h-0.5 w-8 bg-accent" aria-hidden />
           <h2 className="text-3xl leading-tight sm:text-4xl md:text-[2.75rem]">
-            Top Picks
+            Live Stock
           </h2>
         </div>
 
@@ -263,11 +247,28 @@ export function TopPicksSection() {
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {cars.map((car, i) => (
-          <CarCard key={car.id} car={car} index={i} />
+      <Swiper
+        modules={[Autoplay, Navigation]}
+        slidesPerView={1.15}
+        spaceBetween={20}
+        loop
+        autoplay={{ delay: 3500, disableOnInteraction: false }}
+        // navigation
+        breakpoints={{
+          640: { slidesPerView: 2.1, spaceBetween: 20 },
+          1024: { slidesPerView: 3.15, spaceBetween: 24 },
+          1280: { slidesPerView: 4, spaceBetween: 24 },
+        }}
+        className="live-stock-swiper !pb-2"
+      >
+        {cars.map((car) => (
+          <SwiperSlide key={car.id} className="h-auto">
+            <CarCard car={car} />
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
+
+   
     </Section>
   );
-}
+};

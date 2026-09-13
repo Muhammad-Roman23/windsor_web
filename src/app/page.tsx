@@ -1,7 +1,7 @@
 import { Sections } from "@/components/layout/Sections";
 import { Hero } from "@/components/sections/Hero";
 import { ManufacturersSlider } from "@/components/sections/Features";
-import { TrustedPartnerSection } from "@/components/sections/Work";
+import { TopPicksSection } from "@/components/sections/Work";
 import { SourcingOptionsSection } from "@/components/sections/Stats";
 import { DealersImportersSection } from "@/components/sections/DealersNeeds";
 import { AuctionAccessSection } from "@/components/sections/Team";
@@ -16,6 +16,12 @@ import { TrustpilotReviews } from "@/components/sections/TrustpilotReviews";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { MarketGuide } from "@/components/sections/MarketGuide";
 import { FAQ } from "@/components/sections/FAQ";
+import { LiveStock } from "@/components/sections/livestock";
+import { GrowthHero } from "@/components/sections/FeedColumn";
+import { CommunityTestimonials } from "@/components/sections/CommunityTestimonials";
+import { CaseStudiesSection } from "@/components/sections/CaseStudiesSection";
+import { ProcessSection } from "@/components/sections/ProcessSection";
+import { AuctionCarsSection } from "@/components/sections/AuctionCarsSection";
 
 export default function Home() {
   const exportFaqs = [
@@ -51,7 +57,13 @@ export default function Home() {
 
         <Hero />
         <ManufacturersSlider />
-        <TrustedPartnerSection />
+        <LiveStock />
+        <TopPicksSection />
+        <GrowthHero />
+        <CommunityTestimonials />
+        <CaseStudiesSection />
+        <ProcessSection />
+        <AuctionCarsSection />
         <SourcingOptionsSection />
         <DealersImportersSection />
         <AuctionAccessSection />
