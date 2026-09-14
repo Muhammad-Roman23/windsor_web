@@ -12,6 +12,7 @@ import { hero } from "@/data/content";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
+import { CarSearchFilterBar } from "./CarSearchFilterBar";
 
 export function Hero() {
   const slides = hero.slides;
@@ -67,9 +68,9 @@ export function Hero() {
               {active.title}
             </h1>
 
-            <p className="max-w-md text-sm leading-7 text-alt/80 sm:text-base sm:leading-8">
+            {/* <p className="max-w-md text-sm leading-7 text-alt/80 sm:text-base sm:leading-8">
               {active.body}
-            </p>
+            </p> */}
 
             <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button href={active.cta.href} className="group w-fit">
@@ -96,6 +97,7 @@ export function Hero() {
           ))}
         </div>
       </div>
+       <CarSearchFilterBar />
     </Section>
   );
 }

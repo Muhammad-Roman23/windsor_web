@@ -90,7 +90,7 @@ export  function VehicleCategoriesSection() {
             </motion.h2>
           </div>
 
-          <motion.p
+          {/* <motion.p
             custom={2}
             initial="hidden"
             whileInView="visible"
@@ -99,7 +99,7 @@ export  function VehicleCategoriesSection() {
             className="text-lg font-medium text-secondary sm:text-xl"
           >
             Different markets require different cars.
-          </motion.p>
+          </motion.p> */}
         </div>
 
         <motion.p

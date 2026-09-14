@@ -10,23 +10,23 @@ import { LayoutGrid, Gavel, FileSearch, ArrowRight } from "lucide-react";
 const options = [
   {
     icon: LayoutGrid,
-    title: "Browse Available Stock",
+    title: "Choose Your Vehicle",
     description:
-      "Browse available Japanese used cars for sale and pick from vehicles that are ready now.",
+      "Browse our available Japanese used cars or tell us what you're looking for. We source vehicles based on your preferred model, specification, condition and market requirements.",
     cta: "Browse inventory",
   },
   {
     icon: Gavel,
-    title: "Search Car Auctions",
+    title: "Source & Secure",
     description:
-      "Search for a specific vehicle through Japanese car auctions when you need an exact model.",
+      "Our team searches through available stock and Japanese car auctions to find suitable vehicles. Once the right option is identified, we work through the purchase process and secure the vehicle for supply.",
     cta: "Search auctions",
   },
   {
     icon: FileSearch,
-    title: "Send Your Requirements",
+    title: "Prepare & Supply",
     description:
-      "Send us your requirements if the vehicle you need isn't currently listed and we'll source it.",
+      "After securing your vehicle, we handle the necessary preparation and supply arrangements, keeping you informed throughout the process until your vehicle is ready for delivery.",
     cta: "Submit requirements",
   },
 ];
@@ -78,7 +78,7 @@ export  function SourcingOptionsSection() {
             variants={fadeUp}
             className="text-3xl leading-tight sm:text-4xl md:text-5xl"
           >
-            More Ways to Source Cars From Japan
+           How We Supply Japanese Cars
           </motion.h2>
 
           <motion.p
@@ -89,9 +89,7 @@ export  function SourcingOptionsSection() {
             variants={fadeUp}
             className="mt-4 text-base leading-relaxed text-secondary sm:text-lg"
           >
-            Every buyer has different inventory requirements, which is why
-            Windsor Auto Group gives you access to more than one sourcing
-            option.
+           From finding the right vehicle in Japan to supplying it for your market, Windsor Auto Group keeps the process straightforward, reliable and focused on your business needs.
           </motion.p>
         </div>
 
@@ -155,25 +153,7 @@ export  function SourcingOptionsSection() {
           })}
         </div>
 
-        {/* Closing statement */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto mt-12 max-w-3xl rounded-2xl border-l-4 px-6 py-5 text-center sm:text-left"
-          style={{
-            borderColor: "var(--color-accent)",
-            backgroundColor:
-              "color-mix(in srgb, var(--color-secondary) 3%, transparent)",
-          }}
-        >
-          <p className="text-base leading-relaxed text-secondary sm:text-lg">
-            Our sourcing approach allows dealers and importers to look beyond
-            limited stock and find vehicles that better match the demand in
-            their own market.
-          </p>
-        </motion.div>
+   
       </div>
     </section>
   );

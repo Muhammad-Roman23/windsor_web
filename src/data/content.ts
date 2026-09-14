@@ -7,14 +7,14 @@ export const hero = {
   slides: [
     {
       badge: "Limited Edition",
-      title: "Feel the Power.\nOwn the Race.",
+      title: "Source Japanese Cars With Confidence",
       body: "Explore the world's most advanced racing machines.",
       image: { src: "https://picsum.photos/1600/900?random=1", alt: "Racing car on track" },
       cta: { label: "Explore Now", href: "/collection" },
     },
     {
       badge: "New Arrival",
-      title: "Precision Built.\nBorn to Perform.",
+      title: "Browse Japanese Cars ,Source a Vehicle",
       body: "Engineered for speed, designed for dominance.",
       image: { src: "https://picsum.photos/1600/900?random=2", alt: "Sports car front view" },
       cta: { label: "View Details", href: "/collection/2" },

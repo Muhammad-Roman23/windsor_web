@@ -20,50 +20,50 @@ const processSteps: ProcessStep[] = [
   {
     id: "research",
     icon: Search,
-    title: "Research",
+    title: "Direct Japanese Vehicle Sourcing",
     duration: "1 Week",
     description:
-      "We explore your users, market, and workflows to uncover what's really slowing growth down.",
+      " Access quality used cars sourced directly from Japan through trusted auctions, stock channels and vehicle requests.",
   },
   {
     id: "strategy",
     icon: Compass,
-    title: "Strategy",
+    title: "Auction & Stock Options",
     duration: "3-4 Days",
     description:
-      "We turn research into a clear roadmap with priorities, scope, and metrics everyone agrees on.",
+      " Choose from available stock or let our team source a specific vehicle through Japan’s extensive used car auction network.",
   },
   {
     id: "visual-design",
     icon: PenTool,
-    title: "Visual Design",
+    title: "Built for Dealers & Importers ",
     duration: "2 Weeks",
     description:
-      "We build a clean, energetic design with easy navigation and visuals that keep people engaged.",
+      " We supply Japanese used cars for dealerships, importers and automotive businesses, helping you source vehicles that fit your market and customer demand.",
   },
   {
     id: "prototype-test",
     icon: FlaskConical,
-    title: "Prototype & Test",
+    title: "Experienced Vehicle Selection",
     duration: "1-2 Weeks",
     description:
-      "We run multiple rounds of testing to make sure every flow feels smooth, secure, and reliable.",
+      "We help identify suitable vehicles based on condition, specifications, auction information and your specific sourcing requirements before purchase.",
   },
   {
     id: "development",
     icon: Code2,
-    title: "Development",
+    title: "Reliable Vehicle Supply",
     duration: "3-4 Weeks",
     description:
-      "We build on a scalable stack, keeping performance and maintainability front and center.",
+      "From vehicle sourcing and purchase to vehicle preparation and supply arrangements, we keep the process organized and straightforward for dealers and importers sourcing from Japan.",
   },
   {
     id: "delivery",
     icon: Rocket,
-    title: "Final Delivery",
+    title: "Worldwide Car Supply",
     duration: "3-5 Days",
     description:
-      "We wrap it up with a polished release and show you exactly how it drives value from day one.",
+      "Whether you need a single vehicle or regular stock for your business, Windsor Auto Group supplies Japanese used vehicles to customers and automotive businesses worldwide.",
   },
 ];
 
@@ -158,7 +158,7 @@ export function ProcessSection() {
         </span>
 
         <h2 className="text-3xl leading-tight sm:text-4xl md:text-[2.75rem]">
-          How We Bring Ideas to Life
+          Why Choose <span className="text-accent">Windsor </span> Auto Group?
         </h2>
 
         <p className="mt-4 text-sm leading-relaxed text-secondary sm:text-base">

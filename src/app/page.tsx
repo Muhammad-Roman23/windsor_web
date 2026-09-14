@@ -22,6 +22,9 @@ import { CommunityTestimonials } from "@/components/sections/CommunityTestimonia
 import { CaseStudiesSection } from "@/components/sections/CaseStudiesSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { AuctionCarsSection } from "@/components/sections/AuctionCarsSection";
+import { AboutWindsorCard } from "@/components/sections/AboutWindsorAutoGroup";
+import { CarSearchFilterBar } from "@/components/sections/CarSearchFilterBar";
+// import { AboutWindsorAutoGroup } from "@/components/sections/AboutWindsorAutoGroup";
 
 export default function Home() {
   const exportFaqs = [
@@ -56,6 +59,7 @@ export default function Home() {
       <Sections>
 
         <Hero />
+       
         <ManufacturersSlider />
         <LiveStock />
         <TopPicksSection />
@@ -64,18 +68,19 @@ export default function Home() {
         <CaseStudiesSection />
         <ProcessSection />
         <AuctionCarsSection />
+        <AboutWindsorCard />
         <SourcingOptionsSection />
-        <DealersImportersSection />
-        <AuctionAccessSection />
-        <JapanToMarketProcess />
+        {/* <DealersImportersSection /> */}
+        {/* <AuctionAccessSection /> */}
+        {/* <JapanToMarketProcess /> */}
         <GlobalReachSection />
         <VehicleCategoriesSection />
-        <BetterWaySection />
-        <MissionSection />
-        <ConfidenceSection />
-        <TrustpilotReviews />
-        <Testimonials />
-        <MarketGuide />
+        {/* <BetterWaySection /> */}
+        {/* <MissionSection /> */}
+        {/* <ConfidenceSection /> */}
+        {/* <TrustpilotReviews /> */}
+        {/* <Testimonials /> */}
+        {/* <MarketGuide /> */}
         <FAQ faqs={exportFaqs} />
         <StartSourcingCTA
           heading="Your Next Vehicle Starts in Japan"
