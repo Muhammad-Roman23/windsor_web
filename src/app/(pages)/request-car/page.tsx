@@ -14,6 +14,7 @@ import { FAQ } from "@/components/sections/FAQ";
 import type { Metadata } from "next";
 import { WhyAuctionCarsSection } from "@/components/sections/WhyAuctionCarsSection";
 import { ReadyToBuySection } from "@/components/sections/ReadyToBuySection";
+import { RequestACarSection } from "@/components/sections/RequestACarSection";
 
 export const metadata: Metadata = {
   title: "Japanese Auction Cars for Sale from Japan | Windsor Auto",
@@ -55,20 +56,10 @@ const exportFaqs = [
     <main>
       <Sections>
         
-        <PageBanner title="Japanese Auction Cars" />
-        <SaleAuctionCars />
-        <AuctionRequirementsCTA />
-        {/* <BuyJapaneseAuctionCars />
-        <HowAuctionsWork />
-        <AuctionSheetsExplainer />
-        <AuctionGradesExplained />
-        <HowWeHelpYouBuy />
-        <SearchAvailableInventory />
-        <AuctionCarsExport /> */}
-        <FAQ faqs={exportFaqs} />
-        {/* <WhyAuctionCarsSection /> */}
-        <ReadyToBuySection />
-        {/* <FinalCta /> */}
+        <PageBanner title="Request a Car" />
+
+        <RequestACarSection />
+
       </Sections>
     </main>
   );

@@ -24,7 +24,7 @@ export const navItems: NavItem[] = [
     children: [
       { label: "Auction Cars", href: "/japanese-auction-cars" },
       { label: "Stock Cars", href: "/japanese-used-stock-cars-for-sale" },
-      { label: "Top Trending", href: "/top-trending" },
+      { label: "Top Trending", href: "/top-trend-car" },
     ],
   },
   {
@@ -42,11 +42,11 @@ export const navItems: NavItem[] = [
   },
   {
     label: "Contact Us",
-    href: "/contact-us",
+    href: "/contact",
   },
   {
     label: "Blogs",
-    href: "/blogs",
+    href: "/japanese-car-blog",
   },
   
   

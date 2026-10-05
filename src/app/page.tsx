@@ -24,6 +24,7 @@ import { ProcessSection } from "@/components/sections/ProcessSection";
 import { AuctionCarsSection } from "@/components/sections/AuctionCarsSection";
 import { AboutWindsorCard } from "@/components/sections/AboutWindsorAutoGroup";
 import { CarSearchFilterBar } from "@/components/sections/CarSearchFilterBar";
+import { RecentBlogsSection } from "@/components/sections/RecentBlogsSection";
 // import { AboutWindsorAutoGroup } from "@/components/sections/AboutWindsorAutoGroup";
 
 export default function Home() {
@@ -81,6 +82,7 @@ export default function Home() {
         {/* <TrustpilotReviews /> */}
         {/* <Testimonials /> */}
         {/* <MarketGuide /> */}
+        <RecentBlogsSection/>
         <FAQ faqs={exportFaqs} />
         <StartSourcingCTA
           heading="Your Next Vehicle Starts in Japan"

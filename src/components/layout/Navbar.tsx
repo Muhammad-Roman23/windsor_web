@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/Button";
 import { Dropdown } from "@/components/ui/Dropdown";
 import { MobileDropdown } from "@/components/ui/MobileDropdown";
 import {ThemeToggle} from "../ui/ThemeToggle";
+import Link from "next/link";
 
 export function Navbar() {
   const [fixed, setFixed] = useState(false);
@@ -73,10 +74,11 @@ export function Navbar() {
           {/* Desktop Actions */}
           <div className="hidden items-center gap-4 md:flex">
             <ThemeToggle />
-
-            <Button href="#contact" variant="accent">
+<Link  href="/request-car">
+            <Button  variant="accent"  className="cursor-pointer">
               Request a Car
             </Button>
+</Link>
           </div>
 
           {/* Mobile Menu Button */}
