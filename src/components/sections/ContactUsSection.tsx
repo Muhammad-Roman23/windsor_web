@@ -148,7 +148,11 @@ export function ContactUsSection() {
                       className="w-full rounded-xl border bg-transparent px-4 py-3 text-sm outline-none transition-colors placeholder:text-secondary/60 focus:border-[var(--color-accent)]"
                       style={{ borderColor: errors.name && touched.name ? "var(--color-accent)" : "color-mix(in srgb, var(--color-secondary) 16%, transparent)", color: "var(--color-alt)" }}
                     />
-                    <ErrorMessage name="name" component="p" className="mt-1 text-xs" style={{ color: "var(--color-accent)" }} />
+                 <ErrorMessage
+  name="name"
+  component="p"
+  className="mt-1 text-xs text-[var(--color-accent)]"
+/>
                   </div>
                   <div>
                     <label className="mb-1.5 block text-sm font-medium text-alt">Email</label>
@@ -159,7 +163,7 @@ export function ContactUsSection() {
                       className="w-full rounded-xl border bg-transparent px-4 py-3 text-sm outline-none transition-colors placeholder:text-secondary/60 focus:border-[var(--color-accent)]"
                       style={{ borderColor: errors.email && touched.email ? "var(--color-accent)" : "color-mix(in srgb, var(--color-secondary) 16%, transparent)", color: "var(--color-alt)" }}
                     />
-                    <ErrorMessage name="email" component="p" className="mt-1 text-xs" style={{ color: "var(--color-accent)" }} />
+                    <ErrorMessage name="email" component="p" className="mt-1 text-xs text-[var(--color-accent)]" />
                   </div>
                   <div>
                     <label className="mb-1.5 block text-sm font-medium text-alt">Phone</label>
@@ -169,7 +173,7 @@ export function ContactUsSection() {
                       className="w-full rounded-xl border bg-transparent px-4 py-3 text-sm outline-none transition-colors placeholder:text-secondary/60 focus:border-[var(--color-accent)]"
                       style={{ borderColor: errors.phone && touched.phone ? "var(--color-accent)" : "color-mix(in srgb, var(--color-secondary) 16%, transparent)", color: "var(--color-alt)" }}
                     />
-                    <ErrorMessage name="phone" component="p" className="mt-1 text-xs" style={{ color: "var(--color-accent)" }} />
+                    <ErrorMessage name="phone" component="p" className="mt-1 text-xs text-[var(--color-accent)]" />
                   </div>
                   <div>
                     <label className="mb-1.5 block text-sm font-medium text-alt">Message</label>
@@ -181,7 +185,7 @@ export function ContactUsSection() {
                       className="w-full resize-none rounded-xl border bg-transparent px-4 py-3 text-sm outline-none transition-colors placeholder:text-secondary/60 focus:border-[var(--color-accent)]"
                       style={{ borderColor: errors.message && touched.message ? "var(--color-accent)" : "color-mix(in srgb, var(--color-secondary) 16%, transparent)", color: "var(--color-alt)" }}
                     />
-                    <ErrorMessage name="message" component="p" className="mt-1 text-xs" style={{ color: "var(--color-accent)" }} />
+                    <ErrorMessage name="message" component="p" className="mt-1 text-xs text-[var(--color-accent)]" />
                   </div>
 
                   <button
