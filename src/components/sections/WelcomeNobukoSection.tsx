@@ -45,11 +45,11 @@ export function WelcomeNobukoSection() {
     <section id="welcome" className="section relative overflow-hidden py-16 sm:py-20">
       
       {/* Background Glow - tailwind based */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
+      {/* <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -top-24 -left-24 h-[500px] w-[500px] rounded-full bg-accent blur-[120px] opacity-20" />
         <div className="absolute -bottom-24 -right-24 h-[500px] w-[500px] rounded-full bg-secondary blur-[120px] opacity-[0.08]" />
         <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(var(--color-secondary)_1px,transparent_1px),linear-gradient(90deg,var(--color-secondary)_1px,transparent_1px)] bg-[size:50px_50px]" />
-      </div>
+      </div> */}
 
       <div className="section-inner relative">
         {/* Badge */}

@@ -8,12 +8,12 @@ import Link from "next/link";
 // ---------------------------------------------------------------------------
 
 const makers = [
-  { label: "Toyota", href: "/makers/toyota" },
-  { label: "Honda", href: "/makers/honda" },
-  { label: "Nissan", href: "/makers/nissan" },
-  { label: "Suzuki", href: "/makers/suzuki" },
-  { label: "Mazda", href: "/makers/mazda" },
-  { label: "Mitsubishi", href: "/makers/mitsubishi" },
+  { label: "Toyota", href: "/toyota" },
+  { label: "Honda", href: "/honda" },
+  { label: "Nissan", href: "/nissan" },
+  { label: "Suzuki", href: "/suzuki" },
+  { label: "Mazda", href: "/mazda" },
+  { label: "Mitsubishi", href: "/mitsubishi" },
 ];
 
 const bodyTypes = [
@@ -211,7 +211,7 @@ export function Footer() {
               href="#"
               className="text-md font-medium text-main transition-colors "
             >
-              Terms of Service
+              Terms & Conditions
             </a>
           </div>
         </div>

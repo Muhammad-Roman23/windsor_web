@@ -9,7 +9,7 @@ import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 
 // ---------------------------------------------------------------------------
-// Content - Tumhara content 100% same hai, sirf image + badge add kiya hai
+// Content (same)
 // ---------------------------------------------------------------------------
 
 const brands = ["Toyota","Nissan","Honda","Mazda","Subaru","Mitsubishi"];
@@ -42,8 +42,10 @@ const features = [
   },
 ];
 
+const AUTO_MS = 3500;
+
 // ---------------------------------------------------------------------------
-// Motion variants - Tumhare wale same
+// Motion variants (same)
 // ---------------------------------------------------------------------------
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -57,12 +59,12 @@ const fadeUp: Variants = {
 export function WhatYouGetSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef<SwiperType | null>(null);
+  const border = "color-mix(in srgb, var(--color-secondary) 16%, transparent)";
 
   return (
     <section id="what-you-get" className="section">
       <div className="section-inner">
-        
-        {/* Heading - Reference jaisa but color variable se */}
+        {/* Heading */}
         <div className="mx-auto max-w-2xl text-center">
           <motion.h2
             custom={0}
@@ -86,108 +88,162 @@ export function WhatYouGetSection() {
           </motion.p>
         </div>
 
-        {/* Swiper Slider */}
-        <div className="mt-12">
-          <Swiper
-            modules={[Autoplay]}
-            slidesPerView={1}
-            loop={true}
-            speed={700}
-            autoplay={{ delay: 3500, disableOnInteraction: false }}
-            onSwiper={(swiper) => (swiperRef.current = swiper)}
-            onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+        <motion.div
+          custom={2}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={fadeUp}
+          className="mt-12"
+        >
+          {/* ---------------- Cinematic slider ---------------- */}
+          <div
+            className="relative overflow-hidden rounded-3xl border"
+            style={{ borderColor: border }}
           >
-            {features.map((feature) => {
-              const Icon = feature.icon;
-              return (
-                <SwiperSlide key={feature.title}>
-                  <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12 py-2">
-                    
-                    {/* Left Content */}
-                    <div className="order-2 lg:order-1">
+            <Swiper
+              modules={[Autoplay]}
+              slidesPerView={1}
+              loop={true}
+              speed={700}
+              autoplay={{ delay: AUTO_MS, disableOnInteraction: false }}
+              onSwiper={(swiper) => (swiperRef.current = swiper)}
+              onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+            >
+              {features.map((feature, i) => {
+                const Icon = feature.icon;
+                return (
+                  <SwiperSlide key={feature.title}>
+                    <div className="relative flex min-h-[520px] items-end sm:min-h-[560px] lg:min-h-[520px]">
+                      {/* Background image */}
+                      <img
+                        src={feature.image}
+                        alt={feature.title}
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
+                      {/* Dark overlays for readability */}
                       <span
-                        className="inline-flex items-center rounded-full border px-4 py-1 text-[11px] font-bold uppercase tracking-widest"
+                        aria-hidden
+                        className="absolute inset-0"
                         style={{
-                          color: "var(--color-accent)",
-                          borderColor: "color-mix(in srgb, var(--color-accent) 40%, transparent)",
-                          backgroundColor: "color-mix(in srgb, var(--color-accent) 10%, transparent)",
-                          boxShadow: "0 0 15px color-mix(in srgb, var(--color-accent) 20%, transparent)"
+                          background:
+                            "linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.15) 100%)",
                         }}
-                      >
-                        {feature.badge}
-                      </span>
+                      />
 
-                      <h3 className="mt-5 text-2xl font-extrabold leading-tight text-alt sm:text-3xl lg:text-[40px]">
-                        {feature.title}
-                      </h3>
+                      {/* Top row: icon + counter */}
+                      <div className="absolute left-5 right-5 top-5 flex items-center justify-between sm:left-8 sm:right-8 sm:top-8">
+                        <span
+                          className="flex h-14 w-14 items-center justify-center rounded-2xl"
+                          style={{ backgroundColor: "var(--color-accent)", color: "var(--color-main)" }}
+                        >
+                          <Icon size={26} strokeWidth={2} />
+                        </span>
+                        <span className="rounded-full bg-black/45 px-4 py-1.5 text-xs font-bold tracking-[0.18em] text-white backdrop-blur-md">
+                          {String(i + 1).padStart(2, "0")} / {String(features.length).padStart(2, "0")}
+                        </span>
+                      </div>
 
-                      <p className="mt-4 text-sm leading-relaxed text-secondary sm:text-base max-w-xl">
-                        {feature.description}
-                      </p>
+                      {/* Glass content card */}
+                      <div className="relative w-full p-5 sm:p-8 lg:p-10">
+                        <div className="max-w-2xl rounded-3xl border border-white/15 bg-black/40 p-6 backdrop-blur-md sm:p-8">
+                          <span
+                            className="inline-flex items-center rounded-full border px-4 py-1 text-[11px] font-bold uppercase tracking-widest"
+                            style={{
+                              color: "var(--color-accent)",
+                              borderColor: "color-mix(in srgb, var(--color-accent) 50%, transparent)",
+                              backgroundColor: "color-mix(in srgb, var(--color-accent) 14%, transparent)",
+                              boxShadow: "0 0 15px color-mix(in srgb, var(--color-accent) 25%, transparent)",
+                            }}
+                          >
+                            {feature.badge}
+                          </span>
 
-                      {feature.tags && (
-                        <div className="mt-5 flex flex-wrap gap-2">
-                          {feature.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="rounded-full border px-3 py-1 text-xs font-medium text-alt"
-                              style={{
-                                borderColor: "color-mix(in srgb, var(--color-secondary) 16%, transparent)",
-                                backgroundColor: "color-mix(in srgb, var(--color-main) 92%, transparent)",
-                              }}
-                            >
-                              {tag}
-                            </span>
-                          ))}
+                          <h3 className="mt-4 text-2xl font-extrabold leading-tight text-white sm:text-3xl lg:text-4xl">
+                            {feature.title}
+                          </h3>
+
+                          <p className="mt-3 text-sm leading-relaxed text-white/80 sm:text-base">
+                            {feature.description}
+                          </p>
+
+                          {feature.tags && (
+                            <div className="mt-5 flex flex-wrap gap-2">
+                              {feature.tags.map((tag) => (
+                                <span
+                                  key={tag}
+                                  className="rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs font-medium text-white"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+                          )}
                         </div>
-                      )}
-
-                      <span
-                        className="mt-6 flex lg:hidden h-10 w-10 items-center justify-center rounded-xl"
-                        style={{ backgroundColor: "color-mix(in srgb, var(--color-accent) 14%, transparent)" }}
-                      >
-                        <Icon className="h-5 w-5 text-accent" />
-                      </span>
-                    </div>
-
-                    {/* Right Image - Slide ke sath change hogi */}
-                    <div className="order-1 lg:order-2">
-                      <div
-                        className="relative overflow-hidden rounded-2xl border"
-                        style={{ borderColor: "color-mix(in srgb, var(--color-secondary) 14%, transparent)" }}
-                      >
-                        <img
-                          src={feature.image}
-                          alt={feature.title}
-                          className="h-[280px] w-full object-cover sm:h-[360px] lg:h-[380px]"
-                        />
                       </div>
                     </div>
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+          </div>
 
-                  </div>
-                </SwiperSlide>
+          {/* ---------------- Tab-cards navigation (replaces dots) ---------------- */}
+          <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
+            {features.map((feature, index) => {
+              const isActive = activeIndex === index;
+              const Icon = feature.icon;
+              return (
+                <button
+                  key={feature.title}
+                  onClick={() => swiperRef.current?.slideToLoop(index)}
+                  aria-label={`Go to slide ${index + 1}`}
+                  aria-current={isActive}
+                  className="cursor-pointer relative flex items-center gap-3 overflow-hidden rounded-2xl border px-4 py-4 text-left transition-all duration-300 hover:-translate-y-0.5"
+                  style={{
+                    borderColor: isActive ? "var(--color-accent)" : border,
+                    backgroundColor: isActive
+                      ? "color-mix(in srgb, var(--color-accent) 12%, transparent)"
+                      : "color-mix(in srgb, var(--color-accent) 4%, transparent)",
+                  }}
+                >
+                  <span
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-colors duration-300"
+                    style={{
+                      backgroundColor: isActive
+                        ? "var(--color-accent)"
+                        : "color-mix(in srgb, var(--color-accent) 14%, transparent)",
+                      color: isActive ? "var(--color-main)" : "var(--color-accent)",
+                    }}
+                  >
+                    <Icon size={18} />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-[11px] font-bold tracking-[0.18em] text-accent">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="block text-sm font-semibold leading-snug text-alt">
+                      {feature.title}
+                    </span>
+                  </span>
+
+                  {/* Autoplay progress */}
+                  {isActive && (
+                    <motion.span
+                      key={`progress-${activeIndex}`}
+                      aria-hidden
+                      className="absolute bottom-0 left-0 h-1 w-full origin-left"
+                      style={{ backgroundColor: "var(--color-accent)" }}
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: AUTO_MS / 1000, ease: "linear" }}
+                    />
+                  )}
+                </button>
               );
             })}
-          </Swiper>
-
-          {/* Custom Pagination Dots - Reference jaisa but variable color */}
-          <div className="mt-8 flex items-center justify-center gap-3">
-            {features.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => swiperRef.current?.slideToLoop(index)}
-                className="h-[10px] rounded-full border transition-all duration-300"
-                style={{
-                  width: activeIndex === index ? "40px" : "32px",
-                  borderColor: activeIndex === index ? "var(--color-accent)" : "color-mix(in srgb, var(--color-secondary) 40%, transparent)",
-                  backgroundColor: activeIndex === index ? "color-mix(in srgb, var(--color-accent) 18%, transparent)" : "transparent",
-                }}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
           </div>
-        </div>
-
+        </motion.div>
       </div>
     </section>
   );

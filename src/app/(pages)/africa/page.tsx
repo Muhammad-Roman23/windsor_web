@@ -21,6 +21,12 @@ import { AfricaUsedCarsSection } from "@/components/sections/AfricaUsedCarsSecti
 import { SupplyPartnerSection } from "@/components/sections/SupplyPartnerSection";
 import { BuyerConfidenceSection } from "@/components/sections/BuyerConfidenceSection";
 import { AfricaImportInfoSection } from "@/components/sections/AfricaImportInfoSection";
+import { TopJapaneseUsedCarsIntroSection } from "@/components/sections/TopJapaneseUsedCarsIntroSection";
+import { UsedCarsAcrossCyprusSection } from "@/components/sections/UsedCarsAcrossCyprus";
+import { WhyJapanesePopularSection } from "@/components/sections/WhyJapanesePopularSection";
+import { NobukoTrustedPartnerSection } from "@/components/sections/NobukoTrustedPartnerSection";
+import { TransparentImportProcessSection } from "@/components/sections/TransparentImportProcessSection";
+
 
 
 
@@ -75,9 +81,10 @@ export default function Africa() {
             <Sections>
 
                 <PageBanner title="Africa" />
-                <AfricaCarsHeroSection />
+                {/* <AfricaCarsHeroSection /> */}
 
-                <AfricaUsedCarsSection />
+                {/* <AfricaUsedCarsSection /> */}
+                <TopJapaneseUsedCarsIntroSection />
 
                 <PopularJapaneseCarsSection
                     eyebrow="Top Choices From Japan"
@@ -171,161 +178,13 @@ export default function Africa() {
                     ctaLabel="View All Cars"
                     ctaHref="#view-all-cars"
                 />
-              
-<ImportJapaneseCarsSection
-  eyebrow="End-to-End Import Process"
-  heading="Import Japanese Cars to Africa"
-  intro="Windsor Auto Group helps African dealers and importers source vehicles from Japan, including stock and auction sourcing, purchase coordination, export preparation and shipping support."
-  steps={[
-    {
-      number: "01",
-      title: "Tell Us What You Need",
-      description:
-        "Share the vehicle, model year, specification, budget and quantity you are looking for.",
-      icon: "search",
-    },
-    {
-      number: "02",
-      title: "Source From Japan",
-      description:
-        "We search available Japanese stock and auction channels to identify vehicles that match your requirements.",
-      icon: "file-check",
-    },
-    {
-      number: "03",
-      title: "Complete Export Preparation",
-      description:
-        "After purchase, Japan-side export documentation and vehicle preparation can be arranged before shipment.",
-      icon: "ship",
-    },
-    {
-      number: "04",
-      title: "Ship to Your Destination",
-      description:
-        "Vehicles can be prepared for export through available shipping routes to African destinations. Shipping method, port and transit arrangements depend on the destination country and vehicle.",
-      icon: "clipboard-list",
-    },
-  ]}
-  ctaLabel="Start Your Import"
-  ctaHref="#request-vehicle"
-/>
+              <UsedCarsAcrossCyprusSection />
+              <WhyJapanesePopularSection />
 
-                <IrelandCitiesSection
-                    eyebrow="Nationwide Coverage"
-                    heading="Japanese Used Cars for African Markets"
-                    description="Windsor Auto Group supports dealers and importers across Cyprus, helping professional buyers source Japanese vehicles for different local markets. Whether your business operates in Nicosia, Limassol, Larnaca, Paphos or Famagusta, our team can help identify suitable Japanese stock according to your customers, budget and preferred vehicle category.
-From compact hybrids for city customers to SUVs and family cars, we help Cyprus businesses access a broader Japanese vehicle supply network.
-"
-                    cities={[
-                        {
-                            number: "01",
-                            title: "Kenya",
-                            description:
-                                "Kenya has strong demand for models including the Toyota Vitz, Corolla Axio, Corolla Fielder, Probox, Hiace, Prado, Honda Fit and Nissan Note.",
-                        },
-                        {
-                            number: "02",
-                            title: "Tanzania",
-                            description:
-                                "Tanzania's market includes demand for practical passenger vehicles as well as SUVs and work-oriented models such as the Toyota Hilux and Land Cruiser.",
-                        },
-                        {
-                            number: "03",
-                            title: "Uganda",
-                            description:
-                                "Ugandan importers commonly source vehicles such as the Toyota Wish, RAV4, Subaru Forester and Honda Fit, offering options across family, SUV and compact segments.",
-                        },
-                        {
-                            number: "04",
-                            title: "Zambia",
-                            description:
-                                "Zambian buyers source a range of Japanese vehicles, including Toyota Corolla, Toyota Hilux and Nissan NP300, particularly where durability and utility are important.",
-                        },
-                    ]}
-                />
-                <JapaneseCarsSection
-  eyebrow="Japanese Imports"
-  heading="Why African Buyers Source Cars From Japan"
-  headingBeforeAccent="Why"
-  headingAccent="African"
-  headingAfterAccent="Buyers Choose Japanese Used Cars"
-  description="Japanese used cars are widely recognised for their reliability, fuel efficiency and practicality. For African dealers and importers, sourcing vehicles from Japan can provide access to a broader range of models, specifications and grades than may be available through local supply channels."
-  features={[
-    {
-      number: "01",
-      title: "Proven Japanese Brands",
-      description:
-        "Toyota, Nissan, Honda and Mazda have a strong presence across African used-car markets, giving buyers access to familiar vehicles and established maintenance networks.",
-      icon: "settings",
-    },
-    {
-      number: "02",
-      title: "Wide Vehicle Selection",
-      description:
-        "Japan offers everything from compact hatchbacks and hybrid cars to SUVs, pickups, vans and commercial vehicles.",
-      icon: "fuel",
-    },
-    {
-      number: "03",
-      title: "Parts & Maintenance Familiarity",
-      description:
-        "Popular Japanese models have established parts and repair networks in many African markets, making them practical choices for dealers and end customers.",
-      icon: "gavel",
-    },
-    {
-      number: "04",
-      title: "Different Segments, One Source",
-      description:
-        "Whether your business focuses on affordable commuter cars, family vehicles, commercial stock or premium SUVs, the Japanese market provides a broad range of options.",
-      icon: "wallet",
-    },
-  ]}
-/>
-                <WhyChooseWindsorProcess
-                    eyebrow="Why Choose"
-                    headingAccent="Why Source "
-                    headingText="Japanese Cars With Windsor Auto Group?"
-                    paragraph="Windsor Auto Group is focused on professional vehicle sourcing from Japan, helping Cyprus dealers, importers and automotive businesses access a wider selection of Japanese used vehicles.
-Rather than restricting buyers to fixed inventory, we can work around specific requirements and help identify suitable vehicles through Japanese stock and auction channels. Our service covers vehicle sourcing, purchase coordination, export preparation and shipping support.
-"   
-                    steps={[
-                        {
-                            number: "01",
-                            title: "Stock & Auction Sourcing",
-                            description:
-                                "Access Japanese vehicles through available stock and auction sourcing channels.",
-                            image:
-                                "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=400&q=80",
-                        },
-                        {
-                            number: "02",
-                            title: "Market-Focused Vehicle Search",
-                            description:
-                                "Tell us where you are selling and what type of vehicles your customers need, and we can source around those requirements.",
-                            image:
-                                "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80",
-                        },
-                        {
-                            number: "03",
-                            title: "Japan-Side Export Support",
-                            description:
-                                "We help coordinate the Japan-side purchasing and export preparation process.",
-                            image:
-                                "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=400&q=80",
-                        },
-                        {
-                            number: "04",
-                            title: " Dealer & Importer Supply",
-                            description:
-                                "Our service is built for businesses that need a consistent source of Japanese used vehicles rather than a single retail purchase.",
-                            image:
-                                "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80",
-                        },
-                    ]}
-                />
-                <SupplyPartnerSection />
-                <BuyerConfidenceSection />
-                <AfricaImportInfoSection />
+              <NobukoTrustedPartnerSection />
+
+              <TransparentImportProcessSection />
+
                 <FAQ faqs={exportFaqs} />
                 <StartSourcingCTA
                     heading=" Source Japanese Cars for Africa"

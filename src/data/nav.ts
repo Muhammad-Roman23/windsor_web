@@ -35,9 +35,9 @@ export const navItems: NavItem[] = [
     label: "Services",
     href: "/services",
     children: [
-      { label: "Terms of Trade", href: "/services/terms-of-trade" },
-      { label: "Service Plans", href: "/services/service-plans" },
-      { label: "Auction Sheet Translator", href: "/services/auction-sheet-translator" },
+      { label: "Terms of Trade", href: "/terms-of-trade" },
+      { label: "Service Plans", href: "/services" },
+      // { label: "Auction Sheet Translator", href: "/services/auction-sheet-translator" },
     ],
   },
   {

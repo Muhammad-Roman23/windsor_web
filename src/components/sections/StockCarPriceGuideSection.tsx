@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, type Variants } from "framer-motion";
-import { HelpCircle } from "lucide-react";
+import { HelpCircle, Cog } from "lucide-react";
 
 // ---------------------------------------------------------------------------
 // Content
@@ -24,6 +24,20 @@ const footnote =
 
 const caption =
   "These models represent popular vehicle types across Windsor Autos' key export markets, but actual stock and auction prices change regularly.";
+
+// ---------------------------------------------------------------------------
+// Helpers (UI only: range bar position from the price string)
+// ---------------------------------------------------------------------------
+
+const SCALE_MAX = 2_600_000;
+
+function getRange(price: string) {
+  const nums = (price.match(/[\d,]+/g) || []).map((n) => parseInt(n.replace(/,/g, ""), 10));
+  const [min = 0, max = min] = nums;
+  const left = Math.min((min / SCALE_MAX) * 100, 100);
+  const width = Math.max(((max - min) / SCALE_MAX) * 100, 4);
+  return { left, width };
+}
 
 // ---------------------------------------------------------------------------
 // Motion variants
@@ -93,14 +107,94 @@ function FootnoteTooltip() {
 }
 
 // ---------------------------------------------------------------------------
+// Price card
+// ---------------------------------------------------------------------------
+
+function PriceCard({ row, index }: { row: (typeof rows)[number]; index: number }) {
+  const cardBorder = "color-mix(in srgb, var(--color-secondary) 14%, transparent)";
+  const { left, width } = getRange(row.price);
+
+  return (
+    <motion.article
+      custom={index}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={fadeUp}
+      whileHover={{ y: -4 }}
+      className="group relative flex flex-col overflow-hidden rounded-3xl border p-6"
+      style={{
+        borderColor: cardBorder,
+        backgroundColor: "color-mix(in srgb, var(--color-accent) 4%, transparent)",
+      }}
+    >
+      {/* Left accent strip */}
+      <span
+        aria-hidden
+        className="absolute left-0 top-0 h-full w-1.5"
+        style={{ backgroundColor: "var(--color-accent)" }}
+      />
+
+      {/* Type chip */}
+      <span
+        className="self-start rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em]"
+        style={{
+          backgroundColor: "color-mix(in srgb, var(--color-accent) 14%, transparent)",
+          color: "var(--color-accent)",
+        }}
+      >
+        {row.type}
+      </span>
+
+      {/* Model */}
+      <h3 className="mt-4 text-xl font-semibold leading-snug text-alt">{row.model}</h3>
+
+      {/* Price */}
+      <div className="mt-5">
+        <p className="text-xs font-medium uppercase tracking-wide text-secondary">
+          Indicative Japan Auction Price*
+        </p>
+        <p className="mt-1 text-lg font-bold leading-snug text-accent sm:text-xl">
+          ¥ {row.price}
+        </p>
+
+        {/* Range bar */}
+        <div
+          className="relative mt-3 h-2 w-full overflow-hidden rounded-full"
+          style={{ backgroundColor: "color-mix(in srgb, var(--color-secondary) 12%, transparent)" }}
+          aria-hidden
+        >
+          <span
+            className="absolute top-0 h-full rounded-full"
+            style={{
+              left: `${left}%`,
+              width: `${width}%`,
+              backgroundColor: "var(--color-accent)",
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Transmission */}
+      <div
+        className="mt-5 flex items-center justify-between border-t border-dashed pt-4"
+        style={{ borderColor: "color-mix(in srgb, var(--color-secondary) 25%, transparent)" }}
+      >
+        <span className="text-sm text-secondary">Transmission</span>
+        <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-alt">
+          <Cog size={15} className="text-accent transition-transform duration-500 group-hover:rotate-90" />
+          {row.transmission}
+        </span>
+      </div>
+    </motion.article>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Section
 // ---------------------------------------------------------------------------
 
 export function StockCarPriceGuideSection() {
-  const cardBorder = "color-mix(in srgb, var(--color-secondary) 14%, transparent)";
-  const headerBg = "color-mix(in srgb, var(--color-secondary) 6%, transparent)";
-  const stripeBg = "color-mix(in srgb, var(--color-secondary) 3%, transparent)";
-
   return (
     <section id="price-guide" className="section">
       <div className="section-inner">
@@ -131,108 +225,20 @@ export function StockCarPriceGuideSection() {
           <FootnoteTooltip />
         </motion.div>
 
-        {/* ----------------------------------------------------------- */}
-        {/* Table — visible md and up                                   */}
-        {/* ----------------------------------------------------------- */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeUp}
-          custom={2}
-          className="mt-6 hidden overflow-hidden rounded-3xl border md:block"
-          style={{ borderColor: cardBorder }}
-        >
-          <table className="w-full border-collapse text-left">
-            <thead>
-              <tr style={{ backgroundColor: headerBg }}>
-                <th className="px-6 py-4 text-sm font-semibold uppercase tracking-wide text-alt">
-                  Model
-                </th>
-                <th className="px-6 py-4 text-sm font-semibold uppercase tracking-wide text-alt">
-                  Type
-                </th>
-                <th className="px-6 py-4 text-center text-sm font-semibold uppercase tracking-wide text-alt">
-                  Indicative Japan Auction Price*
-                </th>
-                <th className="px-6 py-4 text-right text-sm font-semibold uppercase tracking-wide text-alt">
-                  Transmission
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((row, i) => (
-                <tr
-                  key={row.model}
-                  style={{
-                    backgroundColor: i % 2 === 1 ? stripeBg : "transparent",
-                    borderTop: `1px solid ${cardBorder}`,
-                  }}
-                >
-                  <td className="px-6 py-4 text-sm text-secondary sm:text-base">
-                    {row.model}
-                  </td>
-                  <td className="px-6 py-4 text-sm text-secondary sm:text-base">
-                    {row.type}
-                  </td>
-                  <td className="px-6 py-4 text-center text-sm text-secondary sm:text-base">
-                    ¥ {row.price}
-                  </td>
-                  <td className="px-6 py-4 text-right text-sm font-medium text-alt sm:text-base">
-                    {row.transmission}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </motion.div>
-
-        {/* ----------------------------------------------------------- */}
-        {/* Cards — visible below md                                    */}
-        {/* ----------------------------------------------------------- */}
-        <div className="mt-6 space-y-4 md:hidden">
+        {/* Card grid: 1 col mobile, 2 col tablet, 4 col large desktop */}
+        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {rows.map((row, i) => (
-            <motion.div
-              key={row.model}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.4 }}
-              variants={fadeUp}
-              custom={i}
-              className="rounded-2xl border p-5"
-              style={{ borderColor: cardBorder, backgroundColor: stripeBg }}
-            >
-              <div className="flex items-center justify-between gap-3">
-                <p className="text-base font-semibold text-alt">{row.model}</p>
-                <span
-                  className="rounded-full border px-2.5 py-1 text-xs font-medium text-alt"
-                  style={{
-                    borderColor: "color-mix(in srgb, var(--color-secondary) 16%, transparent)",
-                  }}
-                >
-                  {row.type}
-                </span>
-              </div>
-              <dl className="mt-4 grid grid-cols-2 gap-y-2 text-sm">
-                <dt className="text-secondary">Auction price*</dt>
-                <dd className="text-right font-medium text-alt">¥ {row.price}</dd>
-                <dt className="text-secondary">Transmission</dt>
-                <dd className="text-right font-medium text-alt">{row.transmission}</dd>
-              </dl>
-            </motion.div>
+            <PriceCard key={row.model} row={row} index={i} />
           ))}
         </div>
 
-        {/* ----------------------------------------------------------- */}
-        {/* Caption                                                      */}
-        {/* ----------------------------------------------------------- */}
         <motion.p
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.6 }}
           variants={fadeUp}
           custom={3}
-          className="mt-6 text-center text-sm leading-relaxed text-secondary sm:text-base"
+          className="mt-8 text-center text-sm leading-relaxed text-secondary sm:text-base"
         >
           {caption}
         </motion.p>
