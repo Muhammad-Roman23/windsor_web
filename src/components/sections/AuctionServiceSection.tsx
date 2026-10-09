@@ -18,7 +18,7 @@ import {
 const heading = {
   accent: "Auction",
   rest: "Service At",
-  sub: "Nobuko japan",
+  sub: "Windsor Autos",
   desc: "Our auction service allows you to access top-quality vehicles from Japan\'s most reputable auctions directly, ensuring a smooth and reliable buying experience.",
 };
 
@@ -43,7 +43,7 @@ const services = [
   },
   {
     title: "Doorstep Vehicle Delivery Service",
-    desc: "At Nobuko Japan, we offer convenient doorstep delivery, ensuring that your vehicle is safely transported directly to your location, making the process smooth.",
+    desc: "At Windsor Autos, we offer convenient doorstep delivery, ensuring that your vehicle is safely transported directly to your location, making the process smooth.",
     icon: Home,
     image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=600&auto=format&fit=crop",
   },

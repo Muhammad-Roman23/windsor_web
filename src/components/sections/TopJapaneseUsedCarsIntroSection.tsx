@@ -86,7 +86,7 @@ export function TopJapaneseUsedCarsIntroSection() {
             >
               <div className="h-20 w-px bg-gradient-to-b from-accent/50 via-accent/20 to-transparent" />
               <p className="rotate-180 text-xs font-medium uppercase tracking-[0.2em] text-accent" style={{ writingMode: "vertical-rl" }}>
-                Nobuko Japan
+                Windsor Autos
               </p>
               <div className="h-20 w-px bg-gradient-to-t from-accent/50 via-accent/20 to-transparent" />
             </div>
@@ -94,7 +94,7 @@ export function TopJapaneseUsedCarsIntroSection() {
             {/* Content */}
             <div className="lg:col-span-11 p-6 sm:p-8 lg:p-10 xl:p-12">
               <p className="text-center text-base leading-relaxed text-secondary sm:text-[1.05rem] sm:leading-7">
-                Why have Japanese used cars become the top choice for Cypriot drivers? The reasons are their great reliability, modern technology, and long-lasting quality. Nobuko Japan bridges the gap between Japan&apos;s finest auction houses and your driveway in Cyprus. Hence, offering an easy way to own your ideal vehicle. We specialize in importing a curated selection of used cars in Cyprus, from the reliable Toyota Corolla to the fuel-efficient Toyota Aqua hybrid. Every car is carefully checked. We make sure it runs well, is honest about its condition, and is ready to drive on Cyprus&apos;s roads. Nobuko Japan provides complete service in Nicosia, Limassol, Larnaca, and Paphos. This includes everything from finding the car to delivering it, making us your trusted partner for quality Japanese used cars.
+                Why have Japanese used cars become the top choice for Cypriot drivers? The reasons are their great reliability, modern technology, and long-lasting quality. Windsor Autos bridges the gap between Japan&apos;s finest auction houses and your driveway in Cyprus. Hence, offering an easy way to own your ideal vehicle. We specialize in importing a curated selection of used cars in Cyprus, from the reliable Toyota Corolla to the fuel-efficient Toyota Aqua hybrid. Every car is carefully checked. We make sure it runs well, is honest about its condition, and is ready to drive on Cyprus&apos;s roads. Windsor Autos provides complete service in Nicosia, Limassol, Larnaca, and Paphos. This includes everything from finding the car to delivering it, making us your trusted partner for quality Japanese used cars.
               </p>
 
               {/* Bottom Features */}

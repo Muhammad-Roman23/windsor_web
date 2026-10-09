@@ -18,28 +18,28 @@ const cities = [
     short: "Nicosia",
     title: "Used Cars in Nicosia",
     image: "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?q=80&w=1200",
-    desc: "The capital demands reliability. We deliver pre-sold units to Nicosia buyers weekly, with full import documentation support. Our team understands urban driver needs and recommends vehicles that excel in city traffic. Nicosia drivers trust Nobuko Japan for quality used cars Cyprus Nicosia. Our transparent process and competitive pricing make us the preferred choice. Whatever your needs are, Nobuko Japan has the perfect used car for sale in Cyprus waiting for you.",
+    desc: "The capital demands reliability. We deliver pre-sold units to Nicosia buyers weekly, with full import documentation support. Our team understands urban driver needs and recommends vehicles that excel in city traffic. Nicosia drivers trust Windsor Autos for quality used cars Cyprus Nicosia. Our transparent process and competitive pricing make us the preferred choice. Whatever your needs are, Windsor Autos has the perfect used car for sale in Cyprus waiting for you.",
   },
   {
     id: "02",
     short: "Limassol",
     title: "Used Cars in Limassol",
     image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200",
-    desc: "From coastal cruises to highway driving, Limassol clients prefer our accident-free Japanese sedans and hatchbacks. The variety of used cars Limassol buyers can access through Nobuko Japan is unmatched. We offer everything from fuel-efficient hybrids to spacious sedans. Limassol drivers trust Nobuko Japan for quality vehicles and reliable service. Our team helps you find the ideal Japanese used car that matches your lifestyle. Explore our inventory and drive home your dream car today.",
+    desc: "From coastal cruises to highway driving, Limassol clients prefer our accident-free Japanese sedans and hatchbacks. The variety of used cars Limassol buyers can access through Windsor Autos is unmatched. We offer everything from fuel-efficient hybrids to spacious sedans. Limassol drivers trust Windsor Autos for quality vehicles and reliable service. Our team helps you find the ideal Japanese used car that matches your lifestyle. Explore our inventory and drive home your dream car today.",
   },
   {
     id: "03",
     short: "Larnaca",
     title: "Used Cars in Larnaca",
     image: "https://images.unsplash.com/photo-1494783367193-149034c05e8f?q=80&w=1200",
-    desc: "Located near the port? Perfect. Larnaca buyers enjoy faster customs processing when purchasing used cars Larnaca through Nobuko Japan. Our efficient logistics ensure minimal delays. We offer a wide selection of vehicles, from compact city cars to family-friendly sedans. Larnaca drivers appreciate our team\'s transparency and competitive pricing. With our expert guidance, you can easily find a quality used car for sale in Cyprus that fits your budget. Contact us now to get the ideal one.",
+    desc: "Located near the port? Perfect. Larnaca buyers enjoy faster customs processing when purchasing used cars Larnaca through Windsor Autos. Our efficient logistics ensure minimal delays. We offer a wide selection of vehicles, from compact city cars to family-friendly sedans. Larnaca drivers appreciate our team\'s transparency and competitive pricing. With our expert guidance, you can easily find a quality used car for sale in Cyprus that fits your budget. Contact us now to get the ideal one.",
   },
   {
     id: "04",
     short: "Paphos",
     title: "Used Cars in Paphos",
     image: "https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?q=80&w=1200",
-    desc: "Looking for a mellow drive? Small Japanese hatchbacks from our lot are perfect for Paphos\' chill vibes and tight roads. Explore our used cars that Paphos residents trust for daily drives and getaways. We offer reliable vehicles that are affordable to maintain. Paphos drivers choose Nobuko Japan for quality and transparency. Our Japanese used cars come fully inspected and ready for Cypriot roads. We have reliable, fuel-efficient options that offer great value for money.",
+    desc: "Looking for a mellow drive? Small Japanese hatchbacks from our lot are perfect for Paphos\' chill vibes and tight roads. Explore our used cars that Paphos residents trust for daily drives and getaways. We offer reliable vehicles that are affordable to maintain. Paphos drivers choose Windsor Autos for quality and transparency. Our Japanese used cars come fully inspected and ready for Cypriot roads. We have reliable, fuel-efficient options that offer great value for money.",
   },
 ];
 
@@ -144,7 +144,7 @@ export function UsedCarsAcrossCyprusSection() {
                   </p>
 
                   <div className="mt-auto pt-6 flex items-center justify-between border-t text-xs" style={{ borderColor: "color-mix(in srgb, var(--color-secondary) 10%, transparent)" }}>
-                    <span className="font-medium uppercase tracking-widest text-accent">Nobuko Japan • Trusted Partner</span>
+                    <span className="font-medium uppercase tracking-widest text-accent">Windsor Autos • Trusted Partner</span>
                     <span className="text-secondary">{active + 1} / {cities.length}</span>
                   </div>
                 </motion.div>

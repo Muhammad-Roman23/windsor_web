@@ -10,8 +10,8 @@ import { CarFront, ShieldCheck, Globe2, Sparkles } from "lucide-react";
 const content = {
   heading: "Welcome",
   sub1: "to",
-  accent: "Nobuko",
-  sub2: "Japan",
+  accent: "Windsor ",
+  sub2: "Autos",
   badge: "Trusted Japanese Used Car Exporter",
   description:
     "With years of expertise as a leading Japanese used car supplier, we specialize in sourcing, inspecting, and delivering premium vehicles from Japan to the UK, Ireland, Cyprus, and markets worldwide. Our mission is straightforward: to offer businesses and individuals access to certified, high-quality used cars through a streamlined, transparent, and professional process, ensuring complete satisfaction from start to finish",

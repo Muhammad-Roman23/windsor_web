@@ -114,7 +114,7 @@ export function UsedMazdaCarsUkSection() {
 
               <div className="mt-7 flex items-center gap-3">
                 <div className="h-px flex-1" style={{ backgroundColor: "color-mix(in srgb, var(--color-secondary) 10%, transparent)" }} />
-                <span className="text-xs font-semibold tracking-widest uppercase text-accent whitespace-nowrap">Nobuko Japan</span>
+                <span className="text-xs font-semibold tracking-widest uppercase text-accent whitespace-nowrap">Windsor Autos</span>
               </div>
             </div>
 

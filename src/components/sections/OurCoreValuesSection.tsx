@@ -102,7 +102,7 @@ export function OurCoreValuesSection() {
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-4 py-1.5 text-xs font-medium tracking-wide text-accent">
             <Sparkles className="h-3.5 w-3.5" />
-            Why Choose Nobuko Japan
+            Why Choose Windsor Autos
           </span>
           <h2 className="mt-4 text-4xl font-semibold leading-none tracking-tight sm:text-5xl">
             <span className="text-alt">Our </span>
@@ -110,7 +110,7 @@ export function OurCoreValuesSection() {
             <span className="text-alt"> Values</span>
           </h2>
           <p className="mx-auto mt-4 text-sm leading-6 text-secondary sm:text-[14.5px]">
-            At Nobuko Japan, our values are the cornerstone of our operations.
+            At Windsor Autos, our values are the cornerstone of our operations.
             We are dedicated to providing:
           </p>
           <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-accent" />

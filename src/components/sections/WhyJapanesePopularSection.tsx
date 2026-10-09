@@ -17,25 +17,25 @@ const features = [
     id: "01",
     icon: Settings2,
     title: "Exceptional Reliability and Long-Term Performance",
-    desc: "The reputation of Japanese engineering has always been well-known all around the world thanks to the quality of performance and longevity. When you buy used cars in Cyprus from Japan, you get yourself a well-maintained car. Japan\'s strict inspection standards ensure high-quality vehicles, making even five-year-old Japanese cars feel almost new. At Nobuko Japan, we source only the best used cars for sale in Cyprus and all our vehicles are low-mileage and accident-free.",
+    desc: "The reputation of Japanese engineering has always been well-known all around the world thanks to the quality of performance and longevity. When you buy used cars in Cyprus from Japan, you get yourself a well-maintained car. Japan\'s strict inspection standards ensure high-quality vehicles, making even five-year-old Japanese cars feel almost new. At  Windsor Autos, we source only the best used cars for sale in Cyprus and all our vehicles are low-mileage and accident-free.",
   },
   {
     id: "02",
     icon: HandCoins,
     title: "Lower Maintenance Costs Compared to Other Brands",
-    desc: "One of the biggest advantages of owning a used car in Cyprus from Japan is the low maintenance cost. Parts for Japanese engines are widely available and affordable. Local mechanics in Nicosia, Limassol, and Larnaca are familiar with Japanese models, so labour costs are reasonable. Unlike European luxury brands that require expensive specialist services, Japanese cars are budget-friendly to maintain. At Nobuko Japan, we get you vehicles that keep your annual service bills low.",
+    desc: "One of the biggest advantages of owning a used car in Cyprus from Japan is the low maintenance cost. Parts for Japanese engines are widely available and affordable. Local mechanics in Nicosia, Limassol, and Larnaca are familiar with Japanese models, so labour costs are reasonable. Unlike European luxury brands that require expensive specialist services, Japanese cars are budget-friendly to maintain. At  Windsor Autos, we get you vehicles that keep your annual service bills low.",
   },
   {
     id: "03",
     icon: Fuel,
     title: "Fuel-Efficient Models for Everyday Driving",
-    desc: "Fuel efficiency has become a top priority for drivers due to the prices constantly fluctuating across Cyprus. Japanese cars are renowned for their exceptional fuel economy. Many models, especially hybrids, can cut your fuel bills by nearly 30% compared to European imports. This is actually a significant saving for daily commuters traveling between Nicosia and Limassol. Nobuko Japan offers a wide selection of Japanese used cars designed to be fuel-efficient for daily driving.",
+    desc: "Fuel efficiency has become a top priority for drivers due to the prices constantly fluctuating across Cyprus. Japanese cars are renowned for their exceptional fuel economy. Many models, especially hybrids, can cut your fuel bills by nearly 30% compared to European imports. This is actually a significant saving for daily commuters traveling between Nicosia and Limassol.  Windsor Autos offers a wide selection of Japanese used cars designed to be fuel-efficient for daily driving.",
   },
   {
     id: "04",
     icon: TrendingUp,
     title: "Strong Resale Value in Cyprus",
-    desc: "A well-maintained Japanese car is able to hold its value extremely well in Cyprus. The depreciation factor will not affect you once you make the decision to upgrade your car. It is one of the main reasons why many Cypriot consumers choose to buy used Japanese cars in Cyprus. The high resale value of Japanese cars makes them a wise choice. Nobuko Japan only ensures its dealerships with cars that have high resale value.",
+    desc: "A well-maintained Japanese car is able to hold its value extremely well in Cyprus. The depreciation factor will not affect you once you make the decision to upgrade your car. It is one of the main reasons why many Cypriot consumers choose to buy used Japanese cars in Cyprus. The high resale value of Japanese cars makes them a wise choice.  Windsor Autos only ensures its dealerships with cars that have high resale value.",
   },
 ];
 

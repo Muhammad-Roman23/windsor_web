@@ -117,7 +117,7 @@ export function OurServicesSection() {
             <div className="relative overflow-hidden rounded-[32px] border border-secondary/10 bg-main/80 p-2 backdrop-blur-xl">
               <img
                 src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=800&auto=format&fit=crop"
-                alt="Nobuko Japan Services"
+                alt="Windsor Autos Services"
                 className="h-[420px] w-full rounded-[24px] object-cover sm:h-[480px] lg:h-[620px]"
               />
               <div className="absolute inset-2 rounded-[24px] bg-gradient-to-t from-black/70 via-black/10 to-transparent" />

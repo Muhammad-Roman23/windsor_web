@@ -9,11 +9,11 @@ import { BadgeDollarSign, Truck, Handshake, HelpCircle, Sparkles, Quote } from "
 
 const content = {
   why: "Why",
-  choose: "Choose Nobuko Japan",
+  choose: "Choose Windsor Autos",
   sub1: "Experience,",
   sub_accent: "Reliability,",
   sub2: "Trust",
-  desc: "The right partner for importing Japanese used cars is what makes all the difference. At Nobuko Japan, we ensure you\'re in good hands. Our focus is on quality, customer satisfaction, and efficient delivery. We work very hard to give the best-quality vehicles and make it a smooth experience from start to finish. Our global network and customer-centric approach make car importing easy, trustworthy, and stress-free.",
+  desc: "The right partner for importing Japanese used cars is what makes all the difference. At  Windsor Autos, we ensure you\'re in good hands. Our focus is on quality, customer satisfaction, and efficient delivery. We work very hard to give the best-quality vehicles and make it a smooth experience from start to finish. Our global network and customer-centric approach make car importing easy, trustworthy, and stress-free.",
   bottomNote:
     "Our strong commitment to transparency and reliable services sets us apart from other Japanese used car exporters. Whether you\'re looking for economical cars or luxury vehicles, we have a solution for you.",
 };

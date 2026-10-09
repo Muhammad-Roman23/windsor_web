@@ -57,7 +57,7 @@ export function NobukoTrustedPartnerSection() {
                   variants={fadeUp}
                   className="mt-4 text-[1.75rem] leading-[1.1] sm:text-3xl lg:text-[2.5rem] font-semibold tracking-tight"
                 >
-                  Why Nobuko Japan is Cyprus <span className="text-accent">Trusted Partner</span>
+                  Why Windsor Autos is Cyprus <span className="text-accent">Trusted Partner</span>
                 </motion.h2>
 
                 <div className="mt-6 h-px w-12" style={{ backgroundColor: "var(--color-accent)" }} />
@@ -94,7 +94,7 @@ export function NobukoTrustedPartnerSection() {
                 <span className="absolute -left-2 -top-6 text-6xl font-black leading-none select-none" style={{ color: "color-mix(in srgb, var(--color-accent) 10%, transparent)" }}>“</span>
                 
                 <p className="relative text-sm leading-7 sm:text-[15px] sm:leading-8 text-secondary">
-                  Choosing the right partner is as important as picking the right car. <span className="font-semibold text-accent">Nobuko Japan</span> is a trusted Japanese used car exporter with a dedicated Cyprus desk. We know all your requirements, right from driving on Nicosia&apos;s roads to complying with regulations at Limassol. Our procedure is straightforward: we offer you real auction papers and a comprehensive 200-point inspection for every vehicle. We handle the entire process, including shipping to Limassol Port and preparing all necessary customs documentation. Hence, making registration at the Cyprus Department of Road Transport easy. This commitment to quality and simplicity makes us the preferred choice for used cars Cyprus buyers.
+                  Choosing the right partner is as important as picking the right car. <span className="font-semibold text-accent">Windsor Autos</span> is a trusted Japanese used car exporter with a dedicated Cyprus desk. We know all your requirements, right from driving on Nicosia&apos;s roads to complying with regulations at Limassol. Our procedure is straightforward: we offer you real auction papers and a comprehensive 200-point inspection for every vehicle. We handle the entire process, including shipping to Limassol Port and preparing all necessary customs documentation. Hence, making registration at the Cyprus Department of Road Transport easy. This commitment to quality and simplicity makes us the preferred choice for used cars Cyprus buyers.
                 </p>
               </motion.div>
 

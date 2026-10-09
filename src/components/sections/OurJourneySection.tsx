@@ -13,7 +13,7 @@ const journeyContent = {
   heading2_accent: "of Trust",
   heading2_2: "and Quality",
   description:
-    "Nobuko Japan began its journey as a small Japanese car exporter and has grown to become one of the most trusted names in the industry. Over the years, we have built a reputation for delivering top-quality used vehicles that meet global standards. With decades of experience in the business, we understand the intricacies of Japanese car export and are committed to offering the best vehicles from Japan\'s most reputable car auctions.",
+    "Windsor Autos began its journey as a small Japanese car exporter and has grown to become one of the most trusted names in the industry. Over the years, we have built a reputation for delivering top-quality used vehicles that meet global standards. With decades of experience in the business, we understand the intricacies of Japanese car export and are committed to offering the best vehicles from Japan\'s most reputable car auctions.",
   badge: "Since 2005 — Decades of Excellence",
 };
 

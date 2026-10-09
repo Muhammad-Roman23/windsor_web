@@ -427,7 +427,7 @@ export function RequestACarSection() {
                     type="submit"
                     className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-accent py-3.5 text-sm font-bold text-white transition-opacity hover:opacity-90 cursor-pointer"
                   >
-                    ✈ Send Request to Nobuko Japan
+                    ✈ Send Request to Windsor Autos
                   </button>
                 </Form>
               )}
@@ -439,7 +439,7 @@ export function RequestACarSection() {
             <div className="sticky top-24 space-y-6">
               <div className="rounded-3xl border border-secondary/14 bg-secondary/3 p-6">
                 <h3 className="text-center text-sm font-bold text-alt">
-                  Nobuko By Numbers
+                  Windsor By Numbers
                 </h3>
 
                 <div className="mt-4 grid grid-cols-2 gap-3">
@@ -491,7 +491,7 @@ export function RequestACarSection() {
                 </p>
 
                 <p className="mt-2 text-xs text-secondary">
-                  info@nobukojapan.com
+                  info@WindsorAutos.com
                 </p>
               </div>
 
@@ -519,7 +519,7 @@ export function RequestACarSection() {
           isOpen={showPopup}
           onClose={() => setShowPopup(false)}
           title="Request Sent!"
-          message="Thanks for contacting Nobuko Japan. Hum jald hi aapse contact karenge."
+          message="Thanks for contacting Windsor Autos. Hum jald hi aapse contact karenge."
         />
       </div>
     </section>
